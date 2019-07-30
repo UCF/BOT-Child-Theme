@@ -1,0 +1,43 @@
+.document-list li {
+  margin-bottom: 8px;
+}
+
+.document {
+
+  &::before {
+    font-family: 'FontAwesome';
+    margin-right: 8px;
+    position: relative;
+  }
+
+  &[href*='.pdf'] {
+    &::before {
+      color: #d90200;
+      content: '\f1c1';
+    }
+  }
+
+  &[href*='.docx'],
+  &[href*='.doc'] {
+    &::before {
+      color: #2a5696;
+      content: '\f1c2';
+    }
+  }
+
+  &[href*='.xlsx'],
+  &[href*='xls'] {
+    &::before {
+      color: #1d7044;
+      content: '\f1c3';
+    }
+  }
+
+  &[href*='youtube.com'],
+  &[href*='youtu.be'] {
+    &::before {
+      color: #ff0000;
+      content: '\f16a';
+    }
+  }
+}
