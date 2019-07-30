@@ -1,7 +1,28 @@
 <?php
+
+function get_person_markup( $person, $title=null ) {
+	$img = isset( $person->metadata['thumbnail_url'] ) ? $person->metadata['thumbnail_url'] : get_bloginfo('stylesheet_directory') . '/static/img/no-photo.png';
+	ob_start();
+?>
+	<figure class="figure person-figure">
+		<a href="<?php echo get_permalink( $person->ID ); ?>">
+			<img clas="img-responsive" src="<?php echo $img; ?>" alt="<?php echo $person->post_title; ?>">
+			<figcaption class="figure-caption text-secondary text-center mt-2 mb-4">
+				<strong><?php echo $person->post_title; ?></strong>
+				<?php if ( $title ) : ?>
+				<p class="text-muted"><?php echo $title; ?></p>
+				<?php endif; ?>
+			</figcaption>
+		</a>
+	</figure>
+<?php
+	return ob_get_clean();
+}
+
 /**
  * Returns a person list
  **/
+
 function ucf_people_list_shortcode( $atts, $content='' ) {
 	$atts = shortcode_atts(
 		array(
