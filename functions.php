@@ -7,3 +7,4 @@ include_once 'includes/meta.php';
 
 // Add other includes to this file as needed.
 include_once 'includes/shortcodes.php';
+include_once 'includes/meeting_functions.php';

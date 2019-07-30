@@ -1,12 +1,15 @@
 <?php
 
 function get_person_markup( $person, $title=null ) {
-	$img = isset( $person->metadata['thumbnail_url'] ) ? $person->metadata['thumbnail_url'] : get_bloginfo('stylesheet_directory') . '/static/img/no-photo.png';
+	$image = get_the_post_thumbnail_url( $person );
+	if( ! $image ) {
+		$image = BOT_CHILD_THEME_IMG_URL . '/no-photo.png';
+	}
 	ob_start();
 ?>
 	<figure class="figure person-figure">
 		<a href="<?php echo get_permalink( $person->ID ); ?>">
-			<img clas="img-responsive" src="<?php echo $img; ?>" alt="<?php echo $person->post_title; ?>">
+			<img class="img-fluid" src="<?php echo $image; ?>" alt="<?php echo $person->post_title; ?>">
 			<figcaption class="figure-caption text-secondary text-center mt-2 mb-4">
 				<strong><?php echo $person->post_title; ?></strong>
 				<?php if ( $title ) : ?>

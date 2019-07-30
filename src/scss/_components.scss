@@ -36,8 +36,30 @@
   &[href*='youtube.com'],
   &[href*='youtu.be'] {
     &::before {
-      color: #ff0000;
+      color: #f00;
       content: '\f16a';
+    }
+  }
+}
+
+.underline-gold {
+  border-bottom: 2px solid $ucf-gold;
+  padding-bottom: 5px;
+}
+
+.list-gold-arrow {
+  padding-left: 22px;
+
+  li {
+    font-size: 16px;
+    list-style: none;
+    margin-bottom: 8px;
+
+    &::before {
+      color: $ucf-gold;
+      content: '\f138';
+      font-family: 'FontAwesome';
+      margin: 9px 8px 0 -20px;
     }
   }
 }
