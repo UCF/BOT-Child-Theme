@@ -2,7 +2,7 @@
 <div class="container mt-4 mb-5">
 	<div class="row">
 		<div class="col-md-9">
-			<p class="lead"><?php echo $term->description; ?></p>
+			<p class="lead font-weight-light"><?php echo $term->description; ?></p>
 		<?php 
 			$meetings = get_meetings_by_year_committee( $term );
 					

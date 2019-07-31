@@ -1,13 +1,22 @@
-.document-list li {
-  margin-bottom: 8px;
+.document-list {
+  padding-left: 22px;
+
+  li {
+    margin-bottom: 8px;
+  }
+
+  .document {
+    margin: 9px 8px 0 -22px;
+  }
+
 }
 
 .document {
 
   &::before {
     font-family: 'FontAwesome';
-    margin-right: 8px;
     position: relative;
+    margin-right: 10px;
   }
 
   &[href*='.pdf'] {
@@ -66,4 +75,23 @@
 
 .custom-select-sm {
   height: calc(1.825rem + (1px * 2)) !important;
+}
+
+.footer-menu-wrapper {
+  a {
+    color: #fff;
+  }
+
+  label {
+    margin-bottom: 0 !important;
+    width: 100%;
+  }
+
+  .search-field {
+    width: 100%;
+  }
+
+  .search-submit {
+    display: none;
+  }
 }

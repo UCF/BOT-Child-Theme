@@ -106,3 +106,8 @@ function define_customizer_fields( $wp_customize ) {
 }
 
 add_action( 'customize_register', 'define_customizer_fields' );
+
+function add_footer_menu(){
+	register_nav_menu( 'footer-menu', __( 'Footer Menu' ) );
+}
+add_action( 'after_setup_theme', 'add_footer_menu' );

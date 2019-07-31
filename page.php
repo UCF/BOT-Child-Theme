@@ -1,4 +1,23 @@
 <?php get_header(); the_post();?>
+
+<?php if ((is_home() || is_front_page())) : ?>
+	<div class="bg-faded">
+		<div class="container bg-faded">
+			<div class="row">
+				<div class="col-md-4">
+					<?php echo get_next_meeting_markup(); ?>
+				</div>
+				<div class="col-md-4">
+					<?php echo get_latest_meeting_markup(); ?>
+				</div>
+				<div class="col-md-4">
+					<?php echo get_special_meeting_markup(); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>
+
 <div class="container my-5">
 	<div class="row page-content" id="<?php echo $post->post_name; ?>">
 		<div class="col-md-9">
