@@ -1,4 +1,26 @@
 <?php
+
+function format_meeting_metadata( $metadata ) {
+	if ( isset( $metadata['ucf_meeting_date'] ) ) {
+		$date = new DateTime( $metadata['ucf_meeting_date'] );
+		$metadata['ucf_meeting_date'] = $date;
+	}
+	if ( ! empty( $metadata['ucf_meeting_start_time'] ) ) {
+		$date = new DateTime( $metadata['ucf_meeting_start_time'] );
+		$metadata['ucf_meeting_start_time'] = $date->format( 'g:i a' );
+	} else {
+		$metadata['ucf_meeting_start_time'] = 'TBD';
+	}
+	if ( ! empty ( $metadata['ucf_meeting_end_time'] ) ) {
+		$date = new DateTime( $metadata['ucf_meeting_end_time'] );
+		$metadata['ucf_meeting_end_time'] = $date->format( 'g:i a' );
+	} else {
+		$metadata['ucf_meeting_end_time'] = 'TBD';
+	}
+	return $metadata;
+}
+add_filter( 'ucf_meeting_format_metadata', 'format_meeting_metadata', 10, 1 );
+
 /**
  * Displays meetings
  * Note: REQUIRES meetings to be pulled using the UCF_Meeting class
@@ -9,7 +31,7 @@
 function display_meetings( $meetings, $show_videos = true ) {
 	ob_start();
 ?>
-	<table class="table table-collapse table-striped">
+	<table class="table table-collapse table-striped small">
 		<thead>
 			<tr>
 				<th>Date</th>
@@ -25,7 +47,7 @@ function display_meetings( $meetings, $show_videos = true ) {
 		<tbody>
 	<?php foreach( $meetings as $post ) : ?>
 	<?php
-		$date = isset( $post->metadata['ucf_meeting_date'] ) ? date( 'M j, Y', strtotime( $post->metadata['ucf_meeting_date'] ) ) : 'TBD';
+		$date = isset( $post->metadata['ucf_meeting_date'] ) ? $post->metadata['ucf_meeting_date']->format( 'M j, Y' ) : 'TBD';
 		$start = isset( $post->metadata['ucf_meeting_start_time'] ) ? $post->metadata['ucf_meeting_start_time'] : null;
 		$end = isset( $post->metadata['ucf_meeting_end_time'] ) ? $post->metadata['ucf_meeting_end_time'] : null;
 		$location = isset( $post->metadata['ucf_meeting_location'] ) ? $post->metadata['ucf_meeting_location'] : 'TBD';
@@ -78,21 +100,21 @@ function display_meetings_by_year( $years, $show_videos = true ) {
 	ob_start();
 	if ( ! $years ) :
 ?>
-	<p>No meetings to display.</p>
+	<p>No meetings are scheduled at this time.</p>
 <?php
 	return ob_get_clean();
 	endif;
 	reset( $years );
 	$first_year = ( is_array( $years ) ) ? (int)key( $years ) : null;
 ?>
-	<div class="row">
+	<div class="row mt-5">
 		<div class="col-md-8">
-			<h2>Meetings in <span id="meeting-year"><?php echo $first_year; ?></span></h2>
+			<h2 class="h5 text-uppercase mb-4">Meetings in <span id="meeting-year"><?php echo $first_year; ?></span></h2>
 		</div>
 		<div class="col-md-4">
 			<div class="meeting-select">
-				<label class="form-label" for="year_select">Select Year</label>
-				<select id="year_select" class="form-control dropdown">
+				<label class="form-label font-weight-bold" for="year_select">Select Year</label>
+				<select id="year_select" class="form-control dropdown custom-select-sm">
 				<?php foreach ( array_keys( $years ) as $year ) :?>
 					<option value="<?php echo $year; ?>"<?php echo ( $first_year === $year ) ? ' selected' : ''; ?>><?php echo $year; ?></option>
 				<?php endforeach; ?>
@@ -200,7 +222,7 @@ function get_latest_meeting_minutes( $committee='None', $args=array() ) {
 	$meeting = ( count( $meetings ) ) ? $meetings[0] : null;
 	if ( $meeting ) {
 		$retval = array(
-			'name'  => date( 'F j, Y', strtotime( $meeting->metadata['ucf_meeting_date'] ) ),
+			'name'  => $meeting->metadata['ucf_meeting_date']->format( 'F j, Y' ),
 			'file'  => wp_get_attachment_url( $meeting->metadata['ucf_meeting_minutes'] ),
 			'video' => isset( $meeting->metadata['ucf_meeting_video'] ) ? $meeting->metadata['ucf_meeting_video'] : null
 		);

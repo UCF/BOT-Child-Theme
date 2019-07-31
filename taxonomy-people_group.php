@@ -4,10 +4,10 @@
 		<div class="col-md-9">
 			<p class="lead"><?php echo $term->description; ?></p>
 		<?php 
-			// $meetings = get_meetings_by_year_committee( $term );
+			$meetings = get_meetings_by_year_committee( $term );
 					
-			// $show_videos = get_field('people_group_video_toggle', $term);
-			// echo display_meetings_by_year( $meetings, $show_videos );
+			$show_videos = get_field('people_group_video_toggle', $term);
+			echo display_meetings_by_year( $meetings, $show_videos );
 			
 			echo display_committee_members( $term );
 			echo display_committee_staff( $term ); 

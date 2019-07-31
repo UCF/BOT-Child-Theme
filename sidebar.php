@@ -8,7 +8,7 @@
 				<span class="fa fa-calendar"></span>
 			</div>
 			<div class="col-md-10">
-				<h4 class="h6 mt-1"><?php echo date( 'F j, Y', strtotime( $next_meeting->metadata['ucf_meeting_date'] ) ); ?></h4>
+				<h4 class="h6 mt-1"><?php echo $next_meeting->metadata['ucf_meeting_date']->format( 'F j, Y' ); ?></h4>
 				<time class="small"><?php echo $next_meeting->metadata['ucf_meeting_start_time']; ?> - <?php echo $next_meeting->metadata['ucf_meeting_end_time']; ?></time>
 				<p class="my-1 small"><?php echo $next_meeting->metadata['ucf_meeting_location']; ?></p>
 				<?php if ( $next_meeting->metadata['ucf_meeting_agenda'] ) : $file_url = wp_get_attachment_url( $next_meeting->metadata['ucf_meeting_agenda'] ); ?>
@@ -39,7 +39,7 @@
 				<span class="fa fa-calendar"></span>
 			</div>
 			<div class="col-md-10">
-				<h4 class="h6 mt-1"><?php echo date( 'F j, Y', strtotime( $special_meeting->metadata['ucf_meeting_date'] ) ); ?></h4>
+				<h4 class="h6 mt-1"><?php echo $special_meeting->metadata['ucf_meeting_date']->format( 'F j, Y' ); ?></h4>
 				<time class="small"><?php echo $special_meeting->metadata['ucf_meeting_start_time']; ?> - <?php echo $special_meeting->metadata['ucf_meeting_end_time']; ?></time>
 				<p class="my-1 small"><?php echo $special_meeting->metadata['ucf_meeting_location']; ?></p>
 				<?php if ( isset( $special_meeting->metadata['ucf_meeting_special_name'] ) && ! empty( $special_meeting->metadata['ucf_meeting_special_name'] ) ) : ?>
