@@ -96,7 +96,7 @@ function get_special_meeting_markup() {
 			<time class="small"><?php echo $special_meeting->metadata['ucf_meeting_start_time']; ?> - <?php echo $special_meeting->metadata['ucf_meeting_end_time']; ?></time>
 			<p class="my-1 small"><?php echo $special_meeting->metadata['ucf_meeting_location']; ?></p>
 			<?php if ( isset( $special_meeting->metadata['ucf_meeting_special_name'] ) && ! empty( $special_meeting->metadata['ucf_meeting_special_name'] ) ) : ?>
-				<p class="my-1"><em><?php echo $special_meeting->metadata['ucf_meeting_special_name']; ?></em></p>
+				<p class="my-1 small"><em><?php echo $special_meeting->metadata['ucf_meeting_special_name']; ?></em></p>
 			<?php endif; ?>
 			<?php if ( isset( $special_meeting->metadata['ucf_meeting_agenda'] ) && ! empty( $special_meeting->metadata['ucf_meeting_agenda'] ) ) :
 				$special_meeting_agenda = wp_get_attachment_url( $special_meeting->metadata['ucf_meeting_agenda'] );
