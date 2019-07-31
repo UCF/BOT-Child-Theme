@@ -1,5 +1,5 @@
 <?php get_header(); $term = $wp_query->get_queried_object(); $today = new DateTime( 'now' ); ?>
-<div class="container mt-5">
+<div class="container mt-4 mb-5">
 	<div class="row">
 		<div class="col-md-9">
 			<p class="lead"><?php echo $term->description; ?></p>
@@ -9,8 +9,8 @@
 			// $show_videos = get_field('people_group_video_toggle', $term);
 			// echo display_meetings_by_year( $meetings, $show_videos );
 			
-			// echo display_committee_members( $term );
-			// echo display_committee_staff( $term ); 
+			echo display_committee_members( $term );
+			echo display_committee_staff( $term ); 
 		?>
 			<h2 class="h5 text-uppercase mb-4 mt-5">Committee Charter</h2>
 			<?php $charter = get_field( 'people_group_charter', 'people_group_' . $term->term_id ); ?>

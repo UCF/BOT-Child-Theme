@@ -1,5 +1,9 @@
 <?php
 
+class ThemeConfig {
+	static $setting_defaults  = array(); # Default settings for theme mods
+}
+
 /***************************************************************************
  * SETTINGS RETRIEVAL FUNCTIONS
  *
@@ -10,7 +14,7 @@
  **/
 
 function get_setting_default( $setting, $fallback=null ) {
-	return isset( $setting_defaults[$setting] ) ? ThemeConfig::$setting_defaults[$setting] : $fallback;
+	return isset( ThemeConfig::$setting_defaults[$setting] ) ? ThemeConfig::$setting_defaults[$setting] : $fallback;
 }
 
 /**
@@ -28,17 +32,19 @@ function get_board_members() {
 		'posts_per_page' => -1,
 		'category_name'  => 'trustee'
 	);
+	
 	return get_posts( $args );
 }
 
 function get_board_members_as_options() {
 	$members = get_board_members();
 	$retval = array();
-	// Add an empty value as an option
 	$retval[''] = '';
+
 	foreach( $members as $member ) {
 		$retval[$member->ID] = $member->post_title;
 	}
+
 	return $retval;
 }
 ?>
