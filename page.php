@@ -2,7 +2,7 @@
 
 <?php if ((is_home() || is_front_page())) : ?>
 	<div class="bg-faded">
-		<div class="container bg-faded">
+		<div class="container">
 			<div class="row">
 				<div class="col-md-4">
 					<?php echo get_next_meeting_markup(); ?>

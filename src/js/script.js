@@ -1,9 +1,9 @@
 
 const meetingTabs = function ($) {
-  const $sel = $('#year_select');
+  const $yearSelect = $('#year_select');
 
-  if ($sel) {
-    $sel.change((e) => {
+  if ($yearSelect) {
+    $yearSelect.change((e) => {
       const val = $(e.target).val();
       $('#meeting-year').text(val);
       $('div[id^=panel_].active').removeClass('active');
@@ -13,8 +13,6 @@ const meetingTabs = function ($) {
 };
 
 if (jQuery !== 'undefined') {
-  const $headerImg = $('.media-header-content');
-
   jQuery(document).ready(($) => {
     meetingTabs($);
   });
