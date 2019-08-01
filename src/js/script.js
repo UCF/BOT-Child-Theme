@@ -1,13 +1,21 @@
-//
-// Import third-party assets
-//
 
-// ...
+const meetingTabs = function ($) {
+  const $sel = $('#year_select');
 
+  if ($sel) {
+    $sel.change((e) => {
+      const val = $(e.target).val();
+      $('#meeting-year').text(val);
+      $('div[id^=panel_].active').removeClass('active');
+      $(`#panel_${val}`).addClass('active');
+    });
+  }
+};
 
-//
-// Project-specific scripts
-//
+if (jQuery !== 'undefined') {
+  const $headerImg = $('.media-header-content');
 
-// Require your theme's custom script files here
-// ...
+  jQuery(document).ready(($) => {
+    meetingTabs($);
+  });
+}
