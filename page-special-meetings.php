@@ -2,7 +2,7 @@
 <div class="container">
 	<div class="row page-content" id="<?php echo $post->post_name; ?>">
 		<div class="col-md-9">
-			<?php the_content();?>
+			<?php the_content(); ?>
 			<?php 
 				$none_term = get_term_by( 'name', 'None', 'people_group' );
 				

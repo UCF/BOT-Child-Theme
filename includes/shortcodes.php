@@ -38,7 +38,7 @@ function ucf_people_list_shortcode( $atts, $content='' ) {
 	);
 	$args = array(
 		'post_type'      => 'person',
-		'posts_per_page' => (int)$atts['limit'],
+		'posts_per_page' => ( int ) $atts['limit'],
 		'meta_key'       => 'person_last_name',
 		'order'          => 'ASC',
 		'orderby'        => 'meta_value'
@@ -121,7 +121,7 @@ function ucf_people_group_charter_list_shortcode( $atts, $content="" ) {
 ?>
 	<ul class="list-unstyled document-list">
 	<?php foreach( $terms as $term ) : $charter = get_field( 'people_group_charter', 'people_group_' . $term->term_id ); ?>
-		<li><a class="document" href=<?php echo $charter; ?>><?php echo $term->name; ?> Committee Charter</a></li>
+		<li><a class="document" href="<?php echo $charter; ?>"><?php echo $term->name; ?> Committee Charter</a></li>
 	<?php endforeach; ?>
 	</ul>
 <?php
