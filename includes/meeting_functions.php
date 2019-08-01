@@ -29,7 +29,7 @@ add_filter( 'ucf_meeting_format_metadata', 'format_meeting_metadata', 10, 1 );
 function get_next_meeting_markup() {
 	ob_start();
 ?>
-	<div class="bg-faded p-3">
+	<div class="bg-faded p-3 mb-4">
 		<h3 class="text-uppercase h6 underline-gold mb-3">Next Board Meeting</h3>
 		<?php $next_meeting = get_next_meeting(); if ( $next_meeting ) : ?>
 		<div class="row">
@@ -49,7 +49,7 @@ function get_next_meeting_markup() {
 			</div>
 		</div>
 		<?php else: ?>
-		<p>No Upcoming Meetings Scheduled</p>
+		<p class="small mb-0">No Upcoming Meetings Scheduled</p>
 		<?php endif; ?>
 	</div>
 <?php
@@ -64,7 +64,7 @@ function get_next_meeting_markup() {
 function get_latest_meeting_markup() {
 	ob_start();
 ?>
-	<div class="bg-faded p-3">
+	<div class="bg-faded p-3 mb-4">
 		<h3 class="text-uppercase h6 underline-gold mb-3">Latest Board Minutes</h3>
 		<?php $minutes = get_latest_meeting_minutes(); if ( $minutes && ! empty( $minutes['file'] ) ) : ?>
 			<a href="<?php echo $minutes['file']; ?>" class="document latest-board-minutes"><?php echo $minutes['name']; ?></a>
@@ -109,7 +109,7 @@ function get_special_meeting_markup() {
 		</div>
 	</div>
 	<?php else: ?>
-	<p>No Upcoming Special Meetings</p>
+	<p class="small mb-0">No Upcoming Special Meetings</p>
 	<?php endif; ?>
 	</div>
 <?php
