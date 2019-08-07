@@ -8,7 +8,6 @@ define( 'BOT_CHILD_THEME_URL', get_stylesheet_directory_uri() );
 define( 'BOT_CHILD_THEME_STATIC_URL', BOT_CHILD_THEME_URL . '/static' );
 define( 'BOT_CHILD_THEME_CSS_URL', BOT_CHILD_THEME_STATIC_URL . '/css' );
 define( 'BOT_CHILD_THEME_JS_URL', BOT_CHILD_THEME_STATIC_URL . '/js' );
-define( 'BOT_CHILD_THEME_IMG_URL', BOT_CHILD_THEME_STATIC_URL . '/img' );
 
 define( 'BOT_CHILD_THEME_CUSTOMIZER_DEFAULTS', serialize( array(
 	THEME_CUSTOMIZER_PREFIX . 'board_chair' => null,
