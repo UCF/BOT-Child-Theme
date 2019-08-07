@@ -17,7 +17,7 @@ function display_committee_members( $people_group ) {
 		$exclude[] = $ex_officio->ID;
     }
     
-	// Remove the committee officers from the rest of the memebers.
+	// Remove the committee officers from the rest of the members.
 	$args = array(
 		'post_type'      => 'person',
 		'posts_per_page' => -1,
