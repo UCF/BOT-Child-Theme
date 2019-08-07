@@ -48,7 +48,7 @@ function display_committee_members( $people_group ) {
 		</div>
 		<?php endif; ?>
 		<?php if ( $vice_chair ) : $vice_chair = UCF_People_PostType::append_metadata( $vice_chair ); ?>
-		<div class="col-md-4 col-sm-6">
+		<div class="col-6 col-md-4">
 			<?php echo get_person_markup( $vice_chair, 'Vice Chair' ); ?>
 		</div>
 		<?php endif; ?>
