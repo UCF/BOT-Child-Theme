@@ -43,7 +43,7 @@ function display_committee_members( $people_group ) {
 	<h2 class="h5 text-uppercase mb-4 mt-5">Committee Members</h2>
 	<div class="row">
 		<?php if ( $chair ) : $chair = UCF_People_PostType::append_metadata( $chair ); ?>
-		<div class="col-md-4 col-sm-6">
+		<div class="col-6 col-md-4">
 			<?php echo get_person_markup( $chair, 'Chair' ); ?>
 		</div>
 		<?php endif; ?>
