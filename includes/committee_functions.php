@@ -44,22 +44,22 @@ function display_committee_members( $people_group ) {
 	<div class="row">
 		<?php if ( $chair ) : $chair = UCF_People_PostType::append_metadata( $chair ); ?>
 		<div class="col-6 col-md-4">
-			<?php echo get_person_markup( $chair, 'Chair' ); ?>
+			<?php echo botutils_get_person_markup( $chair, 'Chair' ); ?>
 		</div>
 		<?php endif; ?>
 		<?php if ( $vice_chair ) : $vice_chair = UCF_People_PostType::append_metadata( $vice_chair ); ?>
 		<div class="col-6 col-md-4">
-			<?php echo get_person_markup( $vice_chair, 'Vice Chair' ); ?>
+			<?php echo botutils_get_person_markup( $vice_chair, 'Vice Chair' ); ?>
 		</div>
 		<?php endif; ?>
 		<?php if ( $ex_officio ) : $ex_officio = UCF_People_PostType::append_metadata( $ex_officio ); ?>
 		<div class="col-6 col-md-4">
-			<?php echo get_person_markup( $ex_officio, 'Ex Officio' ); ?>
+			<?php echo botutils_get_person_markup( $ex_officio, 'Ex Officio' ); ?>
 		</div>
 		<?php endif; ?>
 	<?php foreach( $people as $i=>$person ) : $person = UCF_People_PostType::append_metadata( $person ); ?>
 		<div class="col-6 col-md-4">
-			<?php echo get_person_markup( $person ); ?>
+			<?php echo botutils_get_person_markup( $person ); ?>
 		</div>
 	<?php endforeach; ?>
 	</div>
@@ -97,7 +97,7 @@ function display_committee_staff( $people_group ) {
     
         <?php if ( $i % 3 === 0 ) : ?><div class="row"><?php endif; ?>
         <div class="col-6 col-md-4">
-            <?php echo get_person_markup( $person ); ?>
+            <?php echo botutils_get_person_markup( $person ); ?>
         </div>
         <?php if ( $i % 3 === 2  || $i == count( $people ) - 1 ) : ?></div><?php endif; ?>
 <?php
