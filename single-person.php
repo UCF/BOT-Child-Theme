@@ -3,7 +3,7 @@ get_header();
 the_post();
 $post = UCF_People_PostType::append_metadata( $post );
 ?>
-<div class="container">
+<div class="container mt-5">
 	<div class="page-content person-profile mb-5">
 		<div class="row">
 			<div class="col-md-3 details">
@@ -16,7 +16,6 @@ $post = UCF_People_PostType::append_metadata( $post );
 				<img class="img-fluid rounded-circle" src="<?php echo $image; ?>">
 			</div>
 			<div class="col-md-6">
-				<h1 class="h3 mt-0 mb-4"><?php echo $post->post_title; ?></h1>
 				<?php if ( isset( $post->metadata['person_job_title'] ) ) : ?>
 					<p class="lead"><?php echo $post->metadata['person_job_title']; ?></p>
 				<?php endif; ?>
