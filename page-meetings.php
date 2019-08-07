@@ -8,7 +8,7 @@
 				
 				if ( $none_term ) {
 					$board_meetings = get_meetings_by_year_committee( $none_term );
-					$show_videos = get_theme_mod_or_default( 'show_board_meeting_videos' );
+					$show_videos = ucfbot_get_theme_mod_or_default( 'show_board_meeting_videos' );
 					echo display_meetings_by_year( $board_meetings, $show_videos );	
 				}
 			?>

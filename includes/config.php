@@ -10,6 +10,13 @@ define( 'BOT_CHILD_THEME_CSS_URL', BOT_CHILD_THEME_STATIC_URL . '/css' );
 define( 'BOT_CHILD_THEME_JS_URL', BOT_CHILD_THEME_STATIC_URL . '/js' );
 define( 'BOT_CHILD_THEME_IMG_URL', BOT_CHILD_THEME_STATIC_URL . '/img' );
 
+define( 'BOT_CHILD_THEME_CUSTOMIZER_DEFAULTS', serialize( array(
+	THEME_CUSTOMIZER_PREFIX . 'board_chair' => null,
+	THEME_CUSTOMIZER_PREFIX . 'board_vice_chair' => null,
+	THEME_CUSTOMIZER_PREFIX . 'show_board_meeting_videos' => false,
+	THEME_CUSTOMIZER_PREFIX . 'show_special_meeting_videos' => false
+) ) );
+
 /**
  * Customizer Sections
  **/
@@ -22,7 +29,7 @@ function define_customizer_sections( $wp_customize ) {
     );
     
 	$wp_customize->add_section(
-		THEME_CUSTOMIZER_PREFIX . 'board_meeting_videos',
+		THEME_CUSTOMIZER_PREFIX . 'meeting_videos',
 		array(
 			'title' => 'Board Meeting Videos'
 		)
@@ -83,7 +90,7 @@ function define_customizer_fields( $wp_customize ) {
 			'type'        => 'checkbox',
 			'label'       => 'Show Board Meeting Videos',
 			'description' => 'Show videos column in the list of board meetings.',
-			'section'     => THEME_CUSTOMIZER_PREFIX . 'board_meeting_videos'
+			'section'     => THEME_CUSTOMIZER_PREFIX . 'meeting_videos'
 		)
     );
     
@@ -100,7 +107,7 @@ function define_customizer_fields( $wp_customize ) {
 			'type'        => 'checkbox',
 			'label'       => 'Show Special Meeting Videos',
 			'description' => 'Show videos column in the list of special meetings.',
-			'section'     => THEME_CUSTOMIZER_PREFIX . 'board_meeting_videos'
+			'section'     => THEME_CUSTOMIZER_PREFIX . 'meeting_videos'
 		)
 	);
 }
