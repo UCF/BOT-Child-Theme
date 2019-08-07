@@ -53,7 +53,7 @@ function display_committee_members( $people_group ) {
 		</div>
 		<?php endif; ?>
 		<?php if ( $ex_officio ) : $ex_officio = UCF_People_PostType::append_metadata( $ex_officio ); ?>
-		<div class="col-md-4 col-sm-6">
+		<div class="col-6 col-md-4">
 			<?php echo get_person_markup( $ex_officio, 'Ex Officio' ); ?>
 		</div>
 		<?php endif; ?>
