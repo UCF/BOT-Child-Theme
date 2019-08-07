@@ -96,7 +96,7 @@ function display_committee_staff( $people_group ) {
     foreach( $people as $i=>$person ) : $person = UCF_People_PostType::append_metadata( $person ); ?>
     
         <?php if ( $i % 3 === 0 ) : ?><div class="row"><?php endif; ?>
-        <div class="col-md-4 col-sm-6">
+        <div class="col-6 col-md-4">
             <?php echo get_person_markup( $person ); ?>
         </div>
         <?php if ( $i % 3 === 2  || $i == count( $people ) - 1 ) : ?></div><?php endif; ?>
