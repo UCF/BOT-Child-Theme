@@ -9,6 +9,7 @@ include_once 'includes/meta.php';
 include_once 'includes/shortcodes.php';
 include_once 'includes/meeting_functions.php';
 include_once 'includes/committee_functions.php';
+include_once 'includes/people.php';
 
 /**
  * Updates the people_group custom taxonomies labels
