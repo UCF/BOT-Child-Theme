@@ -58,7 +58,7 @@ function display_committee_members( $people_group ) {
 		</div>
 		<?php endif; ?>
 	<?php foreach( $people as $i=>$person ) : $person = UCF_People_PostType::append_metadata( $person ); ?>
-		<div class="col-md-4 col-sm-6">
+		<div class="col-6 col-md-4">
 			<?php echo get_person_markup( $person ); ?>
 		</div>
 	<?php endforeach; ?>
