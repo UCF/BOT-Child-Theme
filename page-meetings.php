@@ -7,9 +7,9 @@
 				$none_term = get_term_by( 'name', 'None', 'people_group' );
 				
 				if ( $none_term ) {
-					$board_meetings = get_meetings_by_year_committee( $none_term );
-					$show_videos = ucfbot_get_theme_mod_or_default( 'show_board_meeting_videos' );
-					echo display_meetings_by_year( $board_meetings, $show_videos );	
+					$board_meetings = ucf_bot_get_meetings_by_year_committee( $none_term );
+					$show_videos = ucf_bot_get_theme_mod_or_default( 'show_board_meeting_videos' );
+					echo ucf_bot_display_meetings_by_year( $board_meetings, $show_videos );	
 				}
 			?>
 		</div>

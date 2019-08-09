@@ -1,9 +1,9 @@
 <aside class="sidebar mb-5">
 	<?php if ( ( ! is_home() && ! is_front_page() ) ) : ?>
 		<?php 
-			echo get_next_meeting_markup();
-			echo get_latest_meeting_markup();
-			echo get_special_meeting_markup();
+			echo ucf_bot_get_next_meeting_markup();
+			echo ucf_bot_get_latest_meeting_markup();
+			echo ucf_bot_get_special_meeting_markup();
 		?>
 	<?php endif; ?>
 

@@ -1,6 +1,6 @@
 <?php
 
-function format_meeting_metadata( $metadata ) {
+function ucf_bot_format_meeting_metadata( $metadata ) {
 	if ( isset( $metadata['ucf_meeting_date'] ) ) {
 		$date = new DateTime( $metadata['ucf_meeting_date'] );
 		$metadata['ucf_meeting_date'] = $date;
@@ -19,37 +19,37 @@ function format_meeting_metadata( $metadata ) {
 	}
 	return $metadata;
 }
-add_filter( 'ucf_meeting_format_metadata', 'format_meeting_metadata', 10, 1 );
+add_filter( 'ucf_meeting_format_metadata', 'ucf_bot_format_meeting_metadata', 10, 1 );
 
 /**
  * Displays next board meeting
  * @author RJ Bruneel
  **/
 
-function get_next_meeting_markup() {
+function ucf_bot_get_next_meeting_markup() {
 	ob_start();
 ?>
 	<div class="bg-faded p-3 mb-4">
 		<h3 class="text-uppercase h6 underline-gold mb-3">Next Board Meeting</h3>
-		<?php $next_meeting = get_next_meeting(); if ( $next_meeting ) : ?>
+		<?php $next_meeting = ucf_bot_get_next_meeting(); if ( $next_meeting ) : ?>
 		<div class="row">
 			<div class="col-md-1">
 				<span class="fa fa-calendar"></span>
 			</div>
 			<div class="col-md-10">
 				<h4 class="h6 mt-1"><?php echo $next_meeting->metadata['ucf_meeting_date']->format( 'F j, Y' ); ?></h4>
-				<time class="small"><?php echo $next_meeting->metadata['ucf_meeting_start_time']; ?> - <?php echo $next_meeting->metadata['ucf_meeting_end_time']; ?></time>
-				<p class="my-1 small"><?php echo $next_meeting->metadata['ucf_meeting_location']; ?></p>
+				<time class="font-80-percent"><?php echo $next_meeting->metadata['ucf_meeting_start_time']; ?> - <?php echo $next_meeting->metadata['ucf_meeting_end_time']; ?></time>
+				<p class="my-1 font-80-percent"><?php echo $next_meeting->metadata['ucf_meeting_location']; ?></p>
 				<?php if ( $next_meeting->metadata['ucf_meeting_agenda'] ) : $file_url = wp_get_attachment_url( $next_meeting->metadata['ucf_meeting_agenda'] ); ?>
-				<p class="mb-0 small"><a class="document" href="<?php echo $file_url; ?>" target="_blank">View Agenda</a></li>
+				<p class="mb-0 font-80-percent"><a class="document" href="<?php echo $file_url; ?>" target="_blank">View Agenda</a></li>
 				<?php endif ; ?>
 				<?php if ( $next_meeting->metadata['ucf_meeting_video'] ) : ?>
-				<p class="mt-1 mb-0 small"><a class="document" href="<?php echo $next_meeting->metadata['ucf_meeting_video']; ?>" target="_blank">View Livestream</a></p>
+				<p class="mt-1 mb-0 font-80-percent"><a class="document" href="<?php echo $next_meeting->metadata['ucf_meeting_video']; ?>" target="_blank">View Livestream</a></p>
 				<?php endif; ?>
 			</div>
 		</div>
 		<?php else: ?>
-		<p class="small mb-0">No Upcoming Meetings Scheduled</p>
+		<p class="font-80-percent mb-0">No Upcoming Meetings Scheduled</p>
 		<?php endif; ?>
 	</div>
 <?php
@@ -61,15 +61,15 @@ function get_next_meeting_markup() {
  * @author RJ Bruneel
  **/
 
-function get_latest_meeting_markup() {
+function ucf_bot_get_latest_meeting_markup() {
 	ob_start();
 ?>
 	<div class="bg-faded p-3 mb-4">
 		<h3 class="text-uppercase h6 underline-gold mb-3">Latest Board Minutes</h3>
-		<?php $minutes = get_latest_meeting_minutes(); if ( $minutes && ! empty( $minutes['file'] ) ) : ?>
+		<?php $minutes = ucf_bot_get_latest_meeting_minutes(); if ( $minutes && ! empty( $minutes['file'] ) ) : ?>
 			<a href="<?php echo $minutes['file']; ?>" class="document latest-board-minutes"><?php echo $minutes['name']; ?></a>
 		<?php else : ?>
-			<p class="mb-0 small">No Minutes Available for Latest Meeting</p>
+			<p class="mb-0 font-80-percent">No Minutes Available for Latest Meeting</p>
 		<?php endif; ?>
 	</div>
 <?php
@@ -81,35 +81,35 @@ function get_latest_meeting_markup() {
  * @author RJ Bruneel
  **/
 
-function get_special_meeting_markup() {
+function ucf_bot_get_special_meeting_markup() {
 	ob_start();
 ?>
 	<div class="bg-faded p-3">
 	<h3 class="text-uppercase h6 underline-gold mb-3">Special Meeting</h3>
-	<?php $special_meeting = get_next_special_meeting(); if ( $special_meeting ) : ?>
+	<?php $special_meeting = ucf_bot_get_next_special_meeting(); if ( $special_meeting ) : ?>
 	<div class="row">
 		<div class="col-md-1">
 			<span class="fa fa-calendar"></span>
 		</div>
 		<div class="col-md-10">
 			<h4 class="h6 mt-1"><?php echo $special_meeting->metadata['ucf_meeting_date']->format( 'F j, Y' ); ?></h4>
-			<time class="small"><?php echo $special_meeting->metadata['ucf_meeting_start_time']; ?> - <?php echo $special_meeting->metadata['ucf_meeting_end_time']; ?></time>
-			<p class="my-1 small"><?php echo $special_meeting->metadata['ucf_meeting_location']; ?></p>
+			<time class="font-80-percent"><?php echo $special_meeting->metadata['ucf_meeting_start_time']; ?> - <?php echo $special_meeting->metadata['ucf_meeting_end_time']; ?></time>
+			<p class="my-1 font-80-percent"><?php echo $special_meeting->metadata['ucf_meeting_location']; ?></p>
 			<?php if ( isset( $special_meeting->metadata['ucf_meeting_special_name'] ) && ! empty( $special_meeting->metadata['ucf_meeting_special_name'] ) ) : ?>
-				<p class="my-1 small"><em><?php echo $special_meeting->metadata['ucf_meeting_special_name']; ?></em></p>
+				<p class="my-1 font-80-percent"><em><?php echo $special_meeting->metadata['ucf_meeting_special_name']; ?></em></p>
 			<?php endif; ?>
 			<?php if ( isset( $special_meeting->metadata['ucf_meeting_agenda'] ) && ! empty( $special_meeting->metadata['ucf_meeting_agenda'] ) ) :
 				$special_meeting_agenda = wp_get_attachment_url( $special_meeting->metadata['ucf_meeting_agenda'] );
 			?>
-				<p class="mb-0 small"><a class="document" href="<?php echo $special_meeting_agenda; ?>" target="_blank">View Agenda</a></p>
+				<p class="mb-0 font-80-percent"><a class="document" href="<?php echo $special_meeting_agenda; ?>" target="_blank">View Agenda</a></p>
 			<?php endif; ?>
 			<?php if ( isset( $special_meeting->metadata['ucf_meeting_video'] ) && ! empty( $special_meeting->metadata['ucf_meeting_video'] ) ) : ?>
-				<p class="mt-1 mb-0 small"><a class="document" href="<?php echo $special_meeting->metadata['ucf_meeting_video']; ?>" target="_blank">View Livestream</a></p>
+				<p class="mt-1 mb-0 font-80-percent"><a class="document" href="<?php echo $special_meeting->metadata['ucf_meeting_video']; ?>" target="_blank">View Livestream</a></p>
 			<?php endif; ?>
 		</div>
 	</div>
 	<?php else: ?>
-	<p class="small mb-0">No Upcoming Special Meetings</p>
+	<p class="font-80-percent mb-0">No Upcoming Special Meetings</p>
 	<?php endif; ?>
 	</div>
 <?php
@@ -123,11 +123,11 @@ function get_special_meeting_markup() {
  * @param $meetings Array<WP_Post>
  **/
 
-function display_meetings( $meetings, $show_videos = true ) {
+function ucf_bot_display_meetings( $meetings, $show_videos = true ) {
 	ob_start();
 ?>
 	<div class="table-responsive">
-		<table class="table table-collapse table-striped small w-100">
+		<table class="table table-collapse table-striped font-80-percent w-100">
 			<thead>
 				<tr>
 					<th>Date</th>
@@ -193,7 +193,7 @@ function display_meetings( $meetings, $show_videos = true ) {
 	return ob_get_clean();
 }
 
-function display_meetings_by_year( $years, $show_videos = true ) {
+function ucf_bot_display_meetings_by_year( $years, $show_videos = true ) {
 	ob_start();
 	if ( ! $years ) :
 ?>
@@ -222,7 +222,7 @@ function display_meetings_by_year( $years, $show_videos = true ) {
 	<div class="tab-content">
 	<?php foreach( $years as $year=>$meetings ) : ?>
 		<div role="tabpanel" class="tab-pane<?php echo ($first_year === $year) ? ' active' : ''; ?>" id="panel_<?php echo $year; ?>">
-			<?php echo display_meetings( $meetings, $show_videos ); ?>
+			<?php echo ucf_bot_display_meetings( $meetings, $show_videos ); ?>
 		</div>
 	<?php endforeach; ?>
 	</div>
@@ -230,7 +230,7 @@ function display_meetings_by_year( $years, $show_videos = true ) {
 	return ob_get_clean();
 }
 
-function get_meetings_committee( $committee, $args=array() ) {
+function ucf_bot_get_meetings_committee( $committee, $args=array() ) {
 	$args['meta_query'] = array(
 		array(
 			'key'      => 'ucf_meeting_committee',
@@ -240,7 +240,7 @@ function get_meetings_committee( $committee, $args=array() ) {
 	return UCF_Meeting::all( $args );
 }
 
-function get_meetings_by_year_committee( $committee, $args=array() ) {
+function ucf_bot_get_meetings_by_year_committee( $committee, $args=array() ) {
 	$args['meta_key'] = 'ucf_meeting_date';
 	$args['orderby'] = 'meta_value';
 	$args['order'] = 'ASC';
@@ -266,7 +266,7 @@ function get_meetings_by_year_committee( $committee, $args=array() ) {
 	return UCF_Meeting::group_by_year( $args );
 }
 
-function get_special_meetings_by_year_committee( $committee, $args=array() ) {
+function ucf_bot_get_special_meetings_by_year_committee( $committee, $args=array() ) {
 	$args['meta_key'] = 'ucf_meeting_date';
 	$args['orderby'] = 'meta_value';
 	$args['order'] = 'ASC';
@@ -287,7 +287,7 @@ function get_special_meetings_by_year_committee( $committee, $args=array() ) {
 	return UCF_Meeting::group_by_year( $args );
 }
 
-function get_latest_meeting_minutes( $committee='None', $args=array() ) {
+function ucf_bot_get_latest_meeting_minutes( $committee='None', $args=array() ) {
 	$retval = null;
 	$today = date('Y-m-d H:i:s');
 	$committee = term_exists( $committee, 'people_group' );
@@ -327,7 +327,7 @@ function get_latest_meeting_minutes( $committee='None', $args=array() ) {
 	return $retval;
 }
 
-function get_next_meeting( $committee='None', $args=array() ) {
+function ucf_bot_get_next_meeting( $committee='None', $args=array() ) {
 	$today = date('Y-m-d');
 	$committee = term_exists( $committee, 'people_group' );
 	$args = array(
@@ -367,7 +367,7 @@ function get_next_meeting( $committee='None', $args=array() ) {
 	return ( count( $meetings ) ) ? $meetings[0] : null;
 }
 
-function get_next_special_meeting( $committee='None', $args=array() ) {
+function ucf_bot_get_next_special_meeting( $committee='None', $args=array() ) {
 	$today = date('Y-m-d');
 	$committee = term_exists( $committee, 'people_group' );
 	$args = array(

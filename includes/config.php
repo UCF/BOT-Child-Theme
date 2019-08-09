@@ -19,7 +19,7 @@ define( 'BOT_CHILD_THEME_CUSTOMIZER_DEFAULTS', serialize( array(
 /**
  * Customizer Sections
  **/
-function define_customizer_sections( $wp_customize ) {
+function ucf_bot_define_customizer_sections( $wp_customize ) {
 	$wp_customize->add_section(
 		THEME_CUSTOMIZER_PREFIX . 'board_positions',
 		array(
@@ -35,15 +35,15 @@ function define_customizer_sections( $wp_customize ) {
 	);
 }
 
-add_action( 'customize_register', 'define_customizer_sections' );
+add_action( 'customize_register', 'ucf_bot_define_customizer_sections' );
 
 /**
  * Customizer Fields
  **/
 
-function define_customizer_fields( $wp_customize ) {
+function ucf_bot_define_customizer_fields( $wp_customize ) {
 	# Board Titles
-    $board_members = get_board_members_as_options();
+    $board_members = ucf_bot_get_board_members_as_options();
     
 	$wp_customize->add_setting(
 		'board_chair'
@@ -111,9 +111,9 @@ function define_customizer_fields( $wp_customize ) {
 	);
 }
 
-add_action( 'customize_register', 'define_customizer_fields' );
+add_action( 'customize_register', 'ucf_bot_define_customizer_fields' );
 
-function add_footer_menu(){
+function ucf_bot_add_footer_menu(){
 	register_nav_menu( 'footer-menu', __( 'Footer Menu' ) );
 }
-add_action( 'after_setup_theme', 'add_footer_menu' );
+add_action( 'after_setup_theme', 'ucf_bot_add_footer_menu' );
