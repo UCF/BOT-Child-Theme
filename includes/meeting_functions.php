@@ -38,18 +38,18 @@ function get_next_meeting_markup() {
 			</div>
 			<div class="col-md-10">
 				<h4 class="h6 mt-1"><?php echo $next_meeting->metadata['ucf_meeting_date']->format( 'F j, Y' ); ?></h4>
-				<time class="small"><?php echo $next_meeting->metadata['ucf_meeting_start_time']; ?> - <?php echo $next_meeting->metadata['ucf_meeting_end_time']; ?></time>
-				<p class="my-1 small"><?php echo $next_meeting->metadata['ucf_meeting_location']; ?></p>
+				<time class="font-80-percent"><?php echo $next_meeting->metadata['ucf_meeting_start_time']; ?> - <?php echo $next_meeting->metadata['ucf_meeting_end_time']; ?></time>
+				<p class="my-1 font-80-percent"><?php echo $next_meeting->metadata['ucf_meeting_location']; ?></p>
 				<?php if ( $next_meeting->metadata['ucf_meeting_agenda'] ) : $file_url = wp_get_attachment_url( $next_meeting->metadata['ucf_meeting_agenda'] ); ?>
-				<p class="mb-0 small"><a class="document" href="<?php echo $file_url; ?>" target="_blank">View Agenda</a></li>
+				<p class="mb-0 font-80-percent"><a class="document" href="<?php echo $file_url; ?>" target="_blank">View Agenda</a></li>
 				<?php endif ; ?>
 				<?php if ( $next_meeting->metadata['ucf_meeting_video'] ) : ?>
-				<p class="mt-1 mb-0 small"><a class="document" href="<?php echo $next_meeting->metadata['ucf_meeting_video']; ?>" target="_blank">View Livestream</a></p>
+				<p class="mt-1 mb-0 font-80-percent"><a class="document" href="<?php echo $next_meeting->metadata['ucf_meeting_video']; ?>" target="_blank">View Livestream</a></p>
 				<?php endif; ?>
 			</div>
 		</div>
 		<?php else: ?>
-		<p class="small mb-0">No Upcoming Meetings Scheduled</p>
+		<p class="font-80-percent mb-0">No Upcoming Meetings Scheduled</p>
 		<?php endif; ?>
 	</div>
 <?php
@@ -69,7 +69,7 @@ function get_latest_meeting_markup() {
 		<?php $minutes = get_latest_meeting_minutes(); if ( $minutes && ! empty( $minutes['file'] ) ) : ?>
 			<a href="<?php echo $minutes['file']; ?>" class="document latest-board-minutes"><?php echo $minutes['name']; ?></a>
 		<?php else : ?>
-			<p class="mb-0 small">No Minutes Available for Latest Meeting</p>
+			<p class="mb-0 font-80-percent">No Minutes Available for Latest Meeting</p>
 		<?php endif; ?>
 	</div>
 <?php
@@ -93,23 +93,23 @@ function get_special_meeting_markup() {
 		</div>
 		<div class="col-md-10">
 			<h4 class="h6 mt-1"><?php echo $special_meeting->metadata['ucf_meeting_date']->format( 'F j, Y' ); ?></h4>
-			<time class="small"><?php echo $special_meeting->metadata['ucf_meeting_start_time']; ?> - <?php echo $special_meeting->metadata['ucf_meeting_end_time']; ?></time>
-			<p class="my-1 small"><?php echo $special_meeting->metadata['ucf_meeting_location']; ?></p>
+			<time class="font-80-percent"><?php echo $special_meeting->metadata['ucf_meeting_start_time']; ?> - <?php echo $special_meeting->metadata['ucf_meeting_end_time']; ?></time>
+			<p class="my-1 font-80-percent"><?php echo $special_meeting->metadata['ucf_meeting_location']; ?></p>
 			<?php if ( isset( $special_meeting->metadata['ucf_meeting_special_name'] ) && ! empty( $special_meeting->metadata['ucf_meeting_special_name'] ) ) : ?>
-				<p class="my-1 small"><em><?php echo $special_meeting->metadata['ucf_meeting_special_name']; ?></em></p>
+				<p class="my-1 font-80-percent"><em><?php echo $special_meeting->metadata['ucf_meeting_special_name']; ?></em></p>
 			<?php endif; ?>
 			<?php if ( isset( $special_meeting->metadata['ucf_meeting_agenda'] ) && ! empty( $special_meeting->metadata['ucf_meeting_agenda'] ) ) :
 				$special_meeting_agenda = wp_get_attachment_url( $special_meeting->metadata['ucf_meeting_agenda'] );
 			?>
-				<p class="mb-0 small"><a class="document" href="<?php echo $special_meeting_agenda; ?>" target="_blank">View Agenda</a></p>
+				<p class="mb-0 font-80-percent"><a class="document" href="<?php echo $special_meeting_agenda; ?>" target="_blank">View Agenda</a></p>
 			<?php endif; ?>
 			<?php if ( isset( $special_meeting->metadata['ucf_meeting_video'] ) && ! empty( $special_meeting->metadata['ucf_meeting_video'] ) ) : ?>
-				<p class="mt-1 mb-0 small"><a class="document" href="<?php echo $special_meeting->metadata['ucf_meeting_video']; ?>" target="_blank">View Livestream</a></p>
+				<p class="mt-1 mb-0 font-80-percent"><a class="document" href="<?php echo $special_meeting->metadata['ucf_meeting_video']; ?>" target="_blank">View Livestream</a></p>
 			<?php endif; ?>
 		</div>
 	</div>
 	<?php else: ?>
-	<p class="small mb-0">No Upcoming Special Meetings</p>
+	<p class="font-80-percent mb-0">No Upcoming Special Meetings</p>
 	<?php endif; ?>
 	</div>
 <?php
@@ -127,7 +127,7 @@ function display_meetings( $meetings, $show_videos = true ) {
 	ob_start();
 ?>
 	<div class="table-responsive">
-		<table class="table table-collapse table-striped small w-100">
+		<table class="table table-collapse table-striped font-80-percent w-100">
 			<thead>
 				<tr>
 					<th>Date</th>
