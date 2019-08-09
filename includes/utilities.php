@@ -8,7 +8,7 @@
  * @param string $defaults Serialized array of theme mod names + default values
  * @return mixed Theme mod default value, or false if a default is not set
  **/
-function ucfbot_get_theme_mod_default( $theme_mod, $defaults=BOT_CHILD_THEME_CUSTOMIZER_DEFAULTS ) {
+function ucf_bot_get_theme_mod_default( $theme_mod, $defaults=BOT_CHILD_THEME_CUSTOMIZER_DEFAULTS ) {
 	$defaults = unserialize( $defaults );
 	if ( $defaults && isset( $defaults[$theme_mod] ) ) {
 		return $defaults[$theme_mod];
@@ -25,8 +25,8 @@ function ucfbot_get_theme_mod_default( $theme_mod, $defaults=BOT_CHILD_THEME_CUS
  * @param string $defaults Serialized array of theme mod names + default values
  * @return mixed Theme mod value or its default
  **/
-function ucfbot_get_theme_mod_or_default( $theme_mod, $defaults=BOT_CHILD_THEME_CUSTOMIZER_DEFAULTS ) {
-	$default = ucfwp_get_theme_mod_default( $theme_mod, $defaults );
+function ucf_bot_get_theme_mod_or_default( $theme_mod, $defaults=BOT_CHILD_THEME_CUSTOMIZER_DEFAULTS ) {
+	$default = ucf_bot_get_theme_mod_default( $theme_mod, $defaults );
 	return get_theme_mod( $theme_mod, $default );
 }
 

@@ -1,6 +1,6 @@
 <?php
 
-function display_committee_members( $people_group ) {
+function ucf_bot_display_committee_members( $people_group ) {
 	$people_group_id = $people_group->term_id;
 	$chair = get_field( 'people_group_chair', 'people_group_' . $people_group_id );
 	$vice_chair = get_field( 'people_group_vice_chair', 'people_group_' . $people_group_id );
@@ -67,7 +67,7 @@ function display_committee_members( $people_group ) {
 	return ob_get_clean();
 }
 
-function display_committee_staff( $people_group ) {
+function ucf_bot_display_committee_staff( $people_group ) {
     $people_group_id = $people_group->term_id;
     
 	$args = array(

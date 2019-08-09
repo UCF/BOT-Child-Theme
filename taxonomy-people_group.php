@@ -4,13 +4,13 @@
 		<div class="col-md-9">
 			<p class="lead font-weight-light"><?php echo $term->description; ?></p>
 		<?php 
-			$meetings = get_meetings_by_year_committee( $term );
+			$meetings = ucf_bot_get_meetings_by_year_committee( $term );
 					
 			$show_videos = get_field('people_group_video_toggle', $term);
-			echo display_meetings_by_year( $meetings, $show_videos );
+			echo ucf_bot_display_meetings_by_year( $meetings, $show_videos );
 			
-			echo display_committee_members( $term );
-			echo display_committee_staff( $term ); 
+			echo ucf_bot_display_committee_members( $term );
+			echo ucf_bot_display_committee_staff( $term ); 
 		?>
 			<h2 class="h5 text-uppercase mb-4 mt-5">Committee Charter</h2>
 			<?php $charter = get_field( 'people_group_charter', 'people_group_' . $term->term_id ); ?>
