@@ -11,10 +11,16 @@
 			
 			echo ucf_bot_display_committee_members( $term );
 			echo ucf_bot_display_committee_staff( $term ); 
+			
+			$charter = get_field( 'people_group_charter', 'people_group_' . $term->term_id );
+
+			if( $charter ) :
 		?>
 			<h2 class="h5 text-uppercase mb-4 mt-5">Committee Charter</h2>
-			<?php $charter = get_field( 'people_group_charter', 'people_group_' . $term->term_id ); ?>
 			<a class="document" href="<?php echo $charter; ?>"><?php echo $term->name; ?> Committee Charter</a>
+		<?php 
+			endif; 
+		?>
 		</div>
 		<div class="col-md-3">
 		<?php get_sidebar(); ?>
