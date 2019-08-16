@@ -1,0 +1,101 @@
+.font-80-percent {
+  font-size: 80%;
+}
+
+.document-list {
+  padding-left: 22px;
+
+  li {
+    margin-bottom: 8px;
+  }
+
+  .document {
+    margin: 9px 8px 0 -22px;
+  }
+
+}
+
+.document {
+
+  &::before {
+    font-family: 'FontAwesome';
+    position: relative;
+    margin-right: 10px;
+  }
+
+  &[href*='.pdf'] {
+    &::before {
+      color: #d90200;
+      content: '\f1c1';
+    }
+  }
+
+  &[href*='.docx'],
+  &[href*='.doc'] {
+    &::before {
+      color: #2a5696;
+      content: '\f1c2';
+    }
+  }
+
+  &[href*='.xlsx'],
+  &[href*='xls'] {
+    &::before {
+      color: #1d7044;
+      content: '\f1c3';
+    }
+  }
+
+  &[href*='youtube.com'],
+  &[href*='youtu.be'] {
+    &::before {
+      color: #f00;
+      content: '\f16a';
+    }
+  }
+}
+
+.underline-gold {
+  border-bottom: 2px solid $ucf-gold;
+  padding-bottom: 5px;
+}
+
+.list-gold-arrow {
+  padding-left: 22px;
+
+  li {
+    font-size: 16px;
+    list-style: none;
+    margin-bottom: 8px;
+
+    &::before {
+      color: $ucf-gold;
+      content: '\f138';
+      font-family: 'FontAwesome';
+      margin: 9px 8px 0 -20px;
+    }
+  }
+}
+
+.custom-select-sm {
+  height: calc(1.825rem + (1px * 2)) !important;
+}
+
+.footer-menu-wrapper {
+  a {
+    color: #fff;
+  }
+
+  label {
+    margin-bottom: 0 !important;
+    width: 100%;
+  }
+
+  .search-field {
+    width: 100%;
+  }
+
+  .search-submit {
+    display: none;
+  }
+}
