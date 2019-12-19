@@ -202,7 +202,12 @@ function ucf_bot_display_meetings_by_year( $years, $show_videos = true ) {
 	return ob_get_clean();
 	endif;
 	reset( $years );
-	$first_year = ( is_array( $years ) ) ? (int)key( $years ) : null;
+
+	$first_year = (int)date( "Y" );
+	// If no meetings in the current year select the first item in the array of meetings
+	if( is_array( $years ) && !in_array( $first_year, array_keys( $years ) ) ) {
+		$first_year = (int)key( $years );
+	}
 ?>
 	<div class="row mt-5">
 		<div class="col-md-8">
