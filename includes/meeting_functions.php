@@ -41,7 +41,7 @@ function ucf_bot_get_next_meeting_markup() {
 				<time class="font-80-percent"><?php echo $next_meeting->metadata['ucf_meeting_start_time']; ?> - <?php echo $next_meeting->metadata['ucf_meeting_end_time']; ?></time>
 				<p class="my-1 font-80-percent"><?php echo $next_meeting->metadata['ucf_meeting_location']; ?></p>
 				<?php if ( $next_meeting->metadata['ucf_meeting_agenda'] ) : $file_url = wp_get_attachment_url( $next_meeting->metadata['ucf_meeting_agenda'] ); ?>
-				<p class="mb-0 font-80-percent"><a class="document" href="<?php echo $file_url; ?>" target="_blank">View Agenda</a></li>
+				<p class="mb-0 font-80-percent"><a class="document" href="<?php echo $file_url; ?>" target="_blank">View Agenda</a></p>
 				<?php endif ; ?>
 				<?php if ( $next_meeting->metadata['ucf_meeting_video'] ) : ?>
 				<p class="mt-1 mb-0 font-80-percent"><a class="document" href="<?php echo $next_meeting->metadata['ucf_meeting_video']; ?>" target="_blank">View Livestream</a></p>
@@ -368,7 +368,7 @@ function ucf_bot_get_next_meeting( $committee='None', $args=array() ) {
 		)
 	);
 	$meetings = UCF_Meeting::all( $args );
-	
+
 	return ( count( $meetings ) ) ? $meetings[0] : null;
 }
 
@@ -400,7 +400,7 @@ function ucf_bot_get_next_special_meeting( $committee='None', $args=array() ) {
 			)
 		)
 	);
-	$meetings = UCF_Meeting::all( $args );	
+	$meetings = UCF_Meeting::all( $args );
 	$meeting = ( count( $meetings ) ) ? $meetings[0] : null;
 	return $meeting;
 }
