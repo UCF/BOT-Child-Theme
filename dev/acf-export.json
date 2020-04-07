@@ -254,15 +254,7 @@
                 "type": "text",
                 "instructions": "(Optional) Add a name for the special meeting",
                 "required": 0,
-                "conditional_logic": [
-                    [
-                        {
-                            "field": "field_58d2deb261415",
-                            "operator": "==",
-                            "value": ""
-                        }
-                    ]
-                ],
+                "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
                     "class": "",
@@ -272,10 +264,7 @@
                 "placeholder": "",
                 "prepend": "",
                 "append": "",
-                "formatting": "none",
-                "maxlength": "",
-                "readonly": 0,
-                "disabled": 0
+                "maxlength": ""
             },
             {
                 "key": "field_5e8cc5a19a853",
