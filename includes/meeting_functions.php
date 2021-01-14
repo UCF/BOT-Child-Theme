@@ -25,6 +25,8 @@ function ucf_bot_get_comments_form_markup() {
 	$form_url  = ucf_bot_get_theme_mod_or_default( 'board_comment_form_url' );
 	$form_text = ucf_bot_get_theme_mod_or_default( 'board_comment_form_link_text' );
 
+	if ( ! $form_url || ! $form_text ) return '';
+
 	ob_start();
 ?>
 	<a class="btn btn-sm btn-block btn-outline-secondary mt-3" href="<?php echo $form_url; ?>" rel="nofollow">
