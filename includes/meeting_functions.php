@@ -21,6 +21,19 @@ function ucf_bot_format_meeting_metadata( $metadata ) {
 }
 add_filter( 'ucf_meeting_format_metadata', 'ucf_bot_format_meeting_metadata', 10, 1 );
 
+function ucf_bot_get_comments_form_markup() {
+	$form_url  = ucf_bot_get_theme_mod_or_default( 'board_comment_form_url' );
+	$form_text = ucf_bot_get_theme_mod_or_default( 'board_comment_form_link_text' );
+
+	ob_start();
+?>
+	<a class="btn btn-sm btn-block btn-outline-secondary mt-3" href="<?php echo $form_url; ?>" rel="nofollow">
+		<?php echo $form_text; ?>
+	</a>
+<?php
+	return ob_get_clean();
+}
+
 /**
  * Displays next board meeting
  * @author RJ Bruneel
@@ -57,6 +70,7 @@ function ucf_bot_get_next_meeting_markup() {
 				<?php endif; ?>
 			</div>
 		</div>
+		<?php echo ucf_bot_get_comments_form_markup(); ?>
 		<?php else: ?>
 		<p class="font-80-percent mb-0">No Upcoming Meetings Scheduled</p>
 		<?php endif; ?>
