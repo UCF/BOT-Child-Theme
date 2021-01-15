@@ -26,11 +26,18 @@ function ucf_bot_define_customizer_sections( $wp_customize ) {
 			'title' => 'Board Titles'
 		)
     );
-    
+
 	$wp_customize->add_section(
 		THEME_CUSTOMIZER_PREFIX . 'meeting_videos',
 		array(
 			'title' => 'Board Meeting Videos'
+		)
+	);
+
+	$wp_customize->add_section(
+		THEME_CUSTOMIZER_PREFIX . 'comments_form',
+		array(
+			'title' => 'Board Comments Form'
 		)
 	);
 }
@@ -44,11 +51,11 @@ add_action( 'customize_register', 'ucf_bot_define_customizer_sections' );
 function ucf_bot_define_customizer_fields( $wp_customize ) {
 	# Board Titles
     $board_members = ucf_bot_get_board_members_as_options();
-    
+
 	$wp_customize->add_setting(
 		'board_chair'
     );
-    
+
 	$wp_customize->add_control(
 		'board_chair',
 		array(
@@ -59,11 +66,11 @@ function ucf_bot_define_customizer_fields( $wp_customize ) {
 			'choices'     => $board_members
 		)
     );
-    
+
 	$wp_customize->add_setting(
 		'board_vice_chair'
     );
-    
+
 	$wp_customize->add_control(
 		'board_vice_chair',
 		array(
@@ -74,15 +81,15 @@ function ucf_bot_define_customizer_fields( $wp_customize ) {
 			'choices'     => $board_members
 		)
     );
-    
-	# Meeting Videos	
+
+	# Meeting Videos
 	$wp_customize->add_setting(
 		'show_board_meeting_videos',
 		array(
 			'default' => true
 		)
     );
-    
+
 	$wp_customize->add_control(
 		'show_board_meeting_videos',
 		array(
@@ -92,14 +99,14 @@ function ucf_bot_define_customizer_fields( $wp_customize ) {
 			'section'     => THEME_CUSTOMIZER_PREFIX . 'meeting_videos'
 		)
     );
-    
+
 	$wp_customize->add_setting(
 		'show_special_meeting_videos',
 		array(
 			'default' => true
 		)
     );
-    
+
 	$wp_customize->add_control(
 		'show_special_meeting_videos',
 		array(
@@ -107,6 +114,35 @@ function ucf_bot_define_customizer_fields( $wp_customize ) {
 			'label'       => 'Show Special Meeting Videos',
 			'description' => 'Show videos column in the list of special meetings.',
 			'section'     => THEME_CUSTOMIZER_PREFIX . 'meeting_videos'
+		)
+	);
+
+	# Electronic Contact Form
+	$wp_customize->add_setting(
+		'board_comment_form_url'
+	);
+
+	$wp_customize->add_control(
+		'board_comment_form_url',
+		array(
+			'type'        => 'url',
+			'label'       => 'Board Comment Form URL',
+			'description' => 'The URL of the board comment form.',
+			'section'     => THEME_CUSTOMIZER_PREFIX . 'comments_form'
+		)
+	);
+
+	$wp_customize->add_setting(
+		'board_comment_form_link_text'
+	);
+
+	$wp_customize->add_control(
+		'board_comment_form_link_text',
+		array(
+			'type'        => 'text',
+			'label'       => 'Board Comment Form Link Text',
+			'description' => 'The text of the board comments form link.',
+			'section'     => THEME_CUSTOMIZER_PREFIX . 'comments_form'
 		)
 	);
 }
