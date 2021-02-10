@@ -29,9 +29,11 @@ function ucf_bot_get_comments_form_markup() {
 
 	ob_start();
 ?>
-	<a class="btn btn-sm btn-outline-secondary btn-comment-request mt-3" href="<?php echo $form_url; ?>" rel="nofollow">
-		<?php echo $form_text; ?>
-	</a>
+	<p class="my-1 font-80-percent">
+		<a class="document comment-request-form" href="<?php echo $form_url; ?>" rel="nofollow">
+			<?php echo $form_text; ?>
+		</a>
+	</p>
 <?php
 	return ob_get_clean();
 }
@@ -55,12 +57,12 @@ function ucf_bot_get_next_meeting_markup() {
 				<h4 class="h6 mt-1"><?php echo $next_meeting->metadata['ucf_meeting_date']->format( 'F j, Y' ); ?></h4>
 				<time class="font-80-percent"><?php echo $next_meeting->metadata['ucf_meeting_start_time']; ?> - <?php echo $next_meeting->metadata['ucf_meeting_end_time']; ?></time>
 				<p class="my-1 font-80-percent"><?php echo $next_meeting->metadata['ucf_meeting_location']; ?></p>
-				<?php if ( $next_meeting->metadata['ucf_meeting_agenda'] ) : $file_url = wp_get_attachment_url( $next_meeting->metadata['ucf_meeting_agenda'] ); ?>
-				<p class="mb-0 font-80-percent"><a class="document" href="<?php echo $file_url; ?>" target="_blank">View Agenda</a></p>
-				<?php endif ; ?>
 				<?php if ( $next_meeting->metadata['ucf_meeting_video'] ) : ?>
 				<p class="my-1 font-80-percent"><a class="document" href="<?php echo $next_meeting->metadata['ucf_meeting_video']; ?>" target="_blank">View Livestream</a></p>
 				<?php endif; ?>
+				<?php if ( $next_meeting->metadata['ucf_meeting_agenda'] ) : $file_url = wp_get_attachment_url( $next_meeting->metadata['ucf_meeting_agenda'] ); ?>
+				<p class="mb-0 font-80-percent"><a class="document" href="<?php echo $file_url; ?>" target="_blank">View Agenda</a></p>
+				<?php endif ; ?>
 				<?php if ( $next_meeting->metadata['ucf_meeting_additional_document'] && $next_meeting->metadata['ucf_meeting_additional_document_text'] ) :
 					$file_url = wp_get_attachment_url( $next_meeting->metadata['ucf_meeting_additional_document'] );
 				?>
@@ -70,9 +72,9 @@ function ucf_bot_get_next_meeting_markup() {
 					</a>
 				</p>
 				<?php endif; ?>
+				<?php echo ucf_bot_get_comments_form_markup(); ?>
 			</div>
 		</div>
-		<?php echo ucf_bot_get_comments_form_markup(); ?>
 		<?php else: ?>
 		<p class="font-80-percent mb-0">No Upcoming Meetings Scheduled</p>
 		<?php endif; ?>
