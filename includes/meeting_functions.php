@@ -29,7 +29,7 @@ function ucf_bot_get_comments_form_markup() {
 
 	ob_start();
 ?>
-	<a class="btn btn-sm btn-block btn-outline-secondary mt-3" href="<?php echo $form_url; ?>" rel="nofollow">
+	<a class="btn btn-sm btn-outline-secondary btn-comment-request mt-3" href="<?php echo $form_url; ?>" rel="nofollow">
 		<?php echo $form_text; ?>
 	</a>
 <?php
