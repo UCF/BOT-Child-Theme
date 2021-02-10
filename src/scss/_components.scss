@@ -18,7 +18,7 @@
 .document {
 
   &.comment-request-form {
-    &:before {
+    &::before {
       color: $black;
       content: '\f075';
       font-family: 'FontAwesome';
