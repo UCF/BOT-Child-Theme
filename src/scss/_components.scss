@@ -20,13 +20,13 @@
   &::before {
     font-family: 'FontAwesome';
     position: relative;
-    margin-right: 10px;
   }
 
   &[href*='.pdf'] {
     &::before {
       color: #d90200;
       content: '\f1c1';
+      margin-right: 10px;
     }
   }
 
@@ -35,6 +35,7 @@
     &::before {
       color: #2a5696;
       content: '\f1c2';
+      margin-right: 10px;
     }
   }
 
@@ -43,6 +44,7 @@
     &::before {
       color: #1d7044;
       content: '\f1c3';
+      margin-right: 10px;
     }
   }
 
@@ -51,6 +53,7 @@
     &::before {
       color: #f00;
       content: '\f16a';
+      margin-right: 9px;
     }
   }
 }
@@ -100,7 +103,12 @@
   }
 }
 
-.btn-comment-request {
-  font-weight: 400;
-  text-transform: none;
+.comment-request-form {
+  &:before {
+    color: $black;
+    content: '\f075';
+    font-family: 'FontAwesome';
+    margin-right: 5px;
+    position: relative;
+  }
 }
