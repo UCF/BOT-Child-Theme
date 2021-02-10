@@ -19,10 +19,10 @@
 
   &.comment-request-form {
     &:before {
-      color: $black !important;
-      content: '\f075' !important;
+      color: $black;
+      content: '\f075';
       font-family: 'FontAwesome';
-      margin-right: 5px !important;
+      margin-right: 5px;
       position: relative;
     }
   }
