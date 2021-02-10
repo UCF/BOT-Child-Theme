@@ -29,8 +29,8 @@ function ucf_bot_get_comments_form_markup() {
 
 	ob_start();
 ?>
-	<a class="btn btn-sm btn-outline-secondary btn-comment-request mt-3" href="<?php echo $form_url; ?>" rel="nofollow">
-		<?php echo $form_text; ?>
+	<a class="text-secondary small mt-3 row d-block" href="<?php echo $form_url; ?>" rel="nofollow">
+		<span class="fa fa-comment col-1"></span><u class="col-11"><?php echo $form_text; ?></u>
 	</a>
 <?php
 	return ob_get_clean();
