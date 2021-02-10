@@ -16,17 +16,6 @@
 }
 
 .document {
-
-  &.comment-request-form {
-    &::before {
-      color: $black;
-      content: '\f075';
-      font-family: 'FontAwesome';
-      margin-right: 5px;
-      position: relative;
-    }
-  }
-
   &::before {
     font-family: 'FontAwesome';
     position: relative;
@@ -37,6 +26,16 @@
       color: #d90200;
       content: '\f1c1';
       margin-right: 10px;
+    }
+
+    &.comment-request-form {
+      &::before {
+        color: $black;
+        content: '\f075';
+        font-family: 'FontAwesome';
+        margin-right: 5px;
+        position: relative;
+      }
     }
   }
 
