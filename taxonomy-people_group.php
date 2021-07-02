@@ -1,16 +1,30 @@
-<?php get_header(); $term = $wp_query->get_queried_object(); $today = new DateTime( 'now' ); ?>
+<?php 
+get_header(); 
+$term = $wp_query->get_queried_object(); 
+$today = new DateTime( 'now' );
+$archived = get_field( 'people_group_archive_toggle', $term );
+?>
+
 <div class="container mt-4 mb-5">
 	<div class="row">
 		<div class="col-md-9">
+
+		<?php if( ! $archived ) : ?>
 			<p class="lead font-weight-light"><?php echo $term->description; ?></p>
+		<?php else : ?>
+			<p class="lead font-weight-light">This committee is no longer active and has been archived.</p>			
+		<?php endif; ?>
+
 		<?php 
 			$meetings = ucf_bot_get_meetings_by_year_committee( $term );
-					
-			$show_videos = get_field('people_group_video_toggle', $term);
+			$show_videos = get_field( 'people_group_video_toggle', $term );
+
 			echo ucf_bot_display_meetings_by_year( $meetings, $show_videos );
-			
-			echo ucf_bot_display_committee_members( $term );
-			echo ucf_bot_display_committee_staff( $term ); 
+
+			if( ! $archived ) :
+				echo ucf_bot_display_committee_members( $term );
+				echo ucf_bot_display_committee_staff( $term ); 
+			endif;
 			
 			$charter = get_field( 'people_group_charter', 'people_group_' . $term->term_id );
 
