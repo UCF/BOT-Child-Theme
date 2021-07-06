@@ -11,8 +11,11 @@ $archived = get_field( 'people_group_archive_toggle', $term );
 
 		<?php if( ! $archived ) : ?>
 			<p class="lead font-weight-light"><?php echo $term->description; ?></p>
-		<?php else : ?>
-			<p class="lead font-weight-light">This committee was archived on <?php echo get_field( 'people_group_archive_date', $term ); ?> and is no longer active.</p>			
+		<?php else :	
+			$archived_date = get_field( 'people_group_archive_date', $term );
+			$archived_date = ( $archived_date ) ? " on " . get_field( 'people_group_archive_date', $term ) : "";
+		?>
+			<p class="lead font-weight-light">This committee was archived<?php echo $archived_date; ?> and is no longer active.</p>			
 		<?php endif; ?>
 
 		<?php 
