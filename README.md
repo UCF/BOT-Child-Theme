@@ -16,6 +16,14 @@ Head over to the [BOT Child Theme wiki](https://github.com/UCF/BOT-Child-Theme/w
 
 -----
 
+## Changelog ##
+
+### 1.0.2 ###
+New Feature:
+* Added a committee archive template and a link to said page below the list of committees in the sidebar. The committee archive page must be created to support this change.
+
+-----
+
 ## Development
 
 Note that compiled, minified css and js files are included within the repo.  Changes to these files should be tracked via git (so that users installing the theme using traditional installation methods will have a working theme out-of-the-box.)
