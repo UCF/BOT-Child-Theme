@@ -12,7 +12,7 @@ $archived = get_field( 'people_group_archive_toggle', $term );
 		<?php if( ! $archived ) : ?>
 			<p class="lead font-weight-light"><?php echo $term->description; ?></p>
 		<?php else : ?>
-			<p class="lead font-weight-light">This committee is no longer active and has been archived.</p>			
+			<p class="lead font-weight-light">This committee was archived on <?php echo get_field( 'people_group_archive_date', $term ); ?> is no longer active.</p>			
 		<?php endif; ?>
 
 		<?php 

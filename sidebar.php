@@ -16,10 +16,15 @@
 		$archived = get_field( 'people_group_archive_toggle', $committee );
 		if( ! $archived ) :
 	?>
-			<li><a href="<?php echo get_site_url( null, '/committees/' . $committee->slug ); ?>"><?php echo $committee->name; ?></a></li>
+			<li>
+				<a href="<?php echo get_site_url( null, '/committees/' . $committee->slug ); ?>">
+					<?php echo $committee->name; ?>
+				</a>
+			</li>
 	<?php 
 		endif;
-	endforeach; 
+	endforeach;
 	?>
+		<li><a href="<?php echo get_site_url(); ?>/committee-archive/">Past Committee Archive</a></li>
 	</ul>
 </aside>
