@@ -106,6 +106,50 @@
                 "ui": 0,
                 "ui_on_text": "",
                 "ui_off_text": ""
+            },
+            {
+                "key": "field_60df155b4f751",
+                "label": "Archive",
+                "name": "people_group_archive_toggle",
+                "type": "true_false",
+                "instructions": "If checked the committee will only be displayed in the archived committee list.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_60df61a64bf83",
+                "label": "Archive Date",
+                "name": "people_group_archive_date",
+                "type": "date_picker",
+                "instructions": "Date the committee was archived.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_60df155b4f751",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "m\/d\/Y",
+                "return_format": "F j, Y",
+                "first_day": 1
             }
         ],
         "location": [
