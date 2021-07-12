@@ -1,6 +1,6 @@
-<?php 
-get_header(); 
-$term = $wp_query->get_queried_object(); 
+<?php
+get_header();
+$term = $wp_query->get_queried_object();
 $today = new DateTime( 'now' );
 $archived = get_field( 'people_group_archive_toggle', $term );
 ?>
@@ -11,14 +11,20 @@ $archived = get_field( 'people_group_archive_toggle', $term );
 
 		<?php if( ! $archived ) : ?>
 			<p class="lead font-weight-light"><?php echo $term->description; ?></p>
-		<?php else :	
-			$archived_date = get_field( 'people_group_archive_date', $term );
-			$archived_date = ( $archived_date ) ? " on " . get_field( 'people_group_archive_date', $term ) : "";
+		<?php else :
+			$archive_message = get_field( 'people_group_archive_message', $term );
+			if ( ! $archive_message ) {
+				$archived_date = get_field( 'people_group_archive_date', $term );
+				$archived_date = $archived_date ?: "this committee's archive date";
+				$archive_message = '<p>Committee agendas and supporting materials prior to ' . $archived_date . ' can be found on this page.</p>';
+			}
 		?>
-			<p class="lead font-weight-light">This committee was archived<?php echo $archived_date; ?> and is no longer active.</p>			
+			<div class="lead font-weight-light">
+				<?php echo $archive_message; ?>
+			</div>
 		<?php endif; ?>
 
-		<?php 
+		<?php
 			$meetings = ucf_bot_get_meetings_by_year_committee( $term );
 			$show_videos = get_field( 'people_group_video_toggle', $term );
 
@@ -26,17 +32,17 @@ $archived = get_field( 'people_group_archive_toggle', $term );
 
 			if( ! $archived ) :
 				echo ucf_bot_display_committee_members( $term );
-				echo ucf_bot_display_committee_staff( $term ); 
+				echo ucf_bot_display_committee_staff( $term );
 			endif;
-			
+
 			$charter = get_field( 'people_group_charter', 'people_group_' . $term->term_id );
 
 			if( $charter ) :
 		?>
 			<h2 class="h5 text-uppercase mb-4 mt-5">Committee Charter</h2>
 			<a class="document" href="<?php echo $charter; ?>"><?php echo $term->name; ?> Committee Charter</a>
-		<?php 
-			endif; 
+		<?php
+			endif;
 		?>
 		</div>
 		<div class="col-md-3">
