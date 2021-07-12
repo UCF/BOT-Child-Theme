@@ -150,6 +150,33 @@
                 "display_format": "m\/d\/Y",
                 "return_format": "F j, Y",
                 "first_day": 1
+            },
+            {
+                "key": "field_60ec8dbc2dc06",
+                "label": "Archive Message",
+                "name": "people_group_archive_message",
+                "type": "wysiwyg",
+                "instructions": "Custom content to display when viewing the single archived committee.  If no message is provided, \"Committee agendas and supporting materials prior to [archive date] can be found on this page.\" will be displayed instead.",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_60df155b4f751",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "delay": 0
             }
         ],
         "location": [
