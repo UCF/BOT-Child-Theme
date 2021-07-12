@@ -15,8 +15,8 @@ $archived = get_field( 'people_group_archive_toggle', $term );
 			$archive_message = get_field( 'people_group_archive_message', $term );
 			if ( ! $archive_message ) {
 				$archived_date = get_field( 'people_group_archive_date', $term );
-				$archived_date = $archived_date ?: " this committee's archive date";
-				$archive_message = '<p>Committee agendas and supporting materials prior to' . $archived_date . ' can be found on this page.</p>';
+				$archived_date = $archived_date ?: "this committee's archive date";
+				$archive_message = '<p>Committee agendas and supporting materials prior to ' . $archived_date . ' can be found on this page.</p>';
 			}
 		?>
 			<div class="lead font-weight-light">
