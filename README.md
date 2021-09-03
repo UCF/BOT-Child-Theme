@@ -18,6 +18,14 @@ Head over to the [BOT Child Theme wiki](https://github.com/UCF/BOT-Child-Theme/w
 
 ## Changelog ##
 
+### 1.2.2 ###
+Bug Fixes:
+* Modified the arguments used to get the latest meeting minutes to ensure meetings where the minutes have been removed at some point are excluded.
+
+### 1.2.1 ###
+Enhancements:
+* Added ability to specify custom committee archive messages
+
 ### 1.2.0 ###
 New Feature:
 * Added a committee archive template and a link to said page below the list of committees in the sidebar. The committee archive page must be created to support this change.
