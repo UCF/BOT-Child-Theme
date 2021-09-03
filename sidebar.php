@@ -11,8 +11,20 @@
 	
 	<h2 class="text-uppercase h5 mt-5 mb-3">Committees</h2>
 	<ul class="list-gold-arrow">
-	<?php foreach( $committees as $committee ) : ?>
-		<li><a href="<?php echo get_site_url( null, '/committees/' . $committee->slug ); ?>"><?php echo $committee->name; ?></a></li>
-	<?php endforeach; ?>
+	<?php 
+	foreach( $committees as $committee ) :
+		$archived = get_field( 'people_group_archive_toggle', $committee );
+		if( ! $archived ) :
+	?>
+			<li>
+				<a href="<?php echo get_site_url( null, '/committees/' . $committee->slug ); ?>">
+					<?php echo $committee->name; ?>
+				</a>
+			</li>
+	<?php 
+		endif;
+	endforeach;
+	?>
+		<li><a href="<?php echo get_site_url(); ?>/committee-archive/">Past Committee Archive</a></li>
 	</ul>
 </aside>
