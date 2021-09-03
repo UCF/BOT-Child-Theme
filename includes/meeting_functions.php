@@ -353,6 +353,14 @@ function ucf_bot_get_latest_meeting_minutes( $committee='None', $args=array() ) 
 			array(
 				'key'     => 'ucf_meeting_minutes',
 				'compare' => 'EXISTS'
+			),
+			array(
+				'key'     => 'ucf_meeting_minutes',
+				'compare' => 'NOT IN',
+				'value'   => array(
+					'',
+					null
+				)
 			)
 		)
 	);
