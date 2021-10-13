@@ -18,6 +18,10 @@ Head over to the [BOT Child Theme wiki](https://github.com/UCF/BOT-Child-Theme/w
 
 ## Changelog ##
 
+### 1.3.0 ###
+Enhancements:
+* Added fields and updated templates to support Board "Retreat/Workshop" meetings as separate from "Other" meetings.
+
 ### 1.2.2 ###
 Bug Fixes:
 * Modified the arguments used to get the latest meeting minutes to ensure meetings where the minutes have been removed at some point are excluded.
