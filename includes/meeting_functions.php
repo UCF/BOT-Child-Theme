@@ -340,7 +340,7 @@ function ucf_bot_get_special_meetings_by_year_committee( $committee, $args=array
 	return UCF_Meeting::group_by_year( $args );
 }
 
-function ucf_bot_get_other_meetings_bu_year_committee( $committee, $args=array() ) {
+function ucf_bot_get_other_meetings_by_year_committee( $committee, $args=array() ) {
 	$args['meta_key'] = 'ucf_meeting_date';
 	$args['orderby'] = 'meta_value';
 	$args['order'] = 'ASC';
