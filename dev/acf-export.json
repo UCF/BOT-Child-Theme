@@ -301,10 +301,29 @@
             },
             {
                 "key": "field_58d2deb261415",
-                "label": "Special Meeting",
+                "label": "Board Retreat or Workshop",
                 "name": "ucf_meeting_special_meeting",
                 "type": "true_false",
-                "instructions": "(Optional) Label this meeting as a special meeting.",
+                "instructions": "(Optional) Label this meeting as a Board Retreat or Workshop.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_6166fe1b9e46a",
+                "label": "Other Meeting",
+                "name": "ucf_meeting_other_meeting",
+                "type": "true_false",
+                "instructions": "(Optional) Label this meeting as an other meeting.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -320,10 +339,10 @@
             },
             {
                 "key": "field_58d2ded461416",
-                "label": "Special Meeting Name",
+                "label": "Alternate Meeting Name",
                 "name": "ucf_meeting_special_name",
                 "type": "text",
-                "instructions": "(Optional) Add a name for the special meeting",
+                "instructions": "(Optional) An alternate name to display when a meeting is either a \"Special\" or \"Other\" meeting, allowing for a more descriptive title to be given.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
