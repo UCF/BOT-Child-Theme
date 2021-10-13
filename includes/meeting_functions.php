@@ -301,6 +301,18 @@ function ucf_bot_get_meetings_by_year_committee( $committee, $args=array() ) {
 				'key'      => 'ucf_meeting_special_meeting',
 				'value'    => 1,
 				'compare'  => '!='
+			),
+		),
+		array(
+			'relation' => 'OR',
+			array(
+				'key'      => 'ucf_meeting_other_meeting',
+				'compare'  => 'NOT EXISTS'
+			),
+			array(
+				'key'      => 'ucf_meeting_other_meeting',
+				'value'    => 1,
+				'compare'  => '!='
 			)
 		)
 	);
@@ -320,6 +332,27 @@ function ucf_bot_get_special_meetings_by_year_committee( $committee, $args=array
 		array(
 			array(
 				'key'      => 'ucf_meeting_special_meeting',
+				'value'    => 1,
+				'compare'  => '='
+			)
+		)
+	);
+	return UCF_Meeting::group_by_year( $args );
+}
+
+function ucf_bot_get_other_meetings_bu_year_committee( $committee, $args=array() ) {
+	$args['meta_key'] = 'ucf_meeting_date';
+	$args['orderby'] = 'meta_value';
+	$args['order'] = 'ASC';
+	$args['meta_query'] = array(
+		array(
+			'key'      => 'ucf_meeting_committee',
+			'value'    => $committee->term_id,
+			'compare'  => 'LIKE'
+		),
+		array(
+			array(
+				'key'      => 'ucf_meeting_other_meeting',
 				'value'    => 1,
 				'compare'  => '='
 			)
@@ -408,6 +441,18 @@ function ucf_bot_get_next_meeting( $committee='None', $args=array() ) {
 					'value'    => '1',
 					'compare'  => '!='
 				)
+			),
+			array(
+				'relation' => 'OR',
+				array(
+					'key'      => 'ucf_meeting_other_meeting',
+					'compare'  => 'NOT EXISTS'
+				),
+				array(
+					'key'      => 'ucf_meeting_other_meeting',
+					'value'    => '1',
+					'compare'  => '!='
+				)
 			)
 		)
 	);
@@ -448,4 +493,38 @@ function ucf_bot_get_next_special_meeting( $committee='None', $args=array() ) {
 	$meeting = ( count( $meetings ) ) ? $meetings[0] : null;
 	return $meeting;
 }
+
+function ucf_bot_get_next_other_meeting( $committee='None', $args=array() ) {
+	$today = date('Y-m-d');
+	$committee = term_exists( $committee, 'people_group' );
+	$args = array(
+		'posts_per_page' => 1,
+		'meta_key'       => 'ucf_meeting_date',
+		'meta_type'      => 'DATE',
+		'orderby'        => 'meta_value',
+		'order'          => 'ASC',
+		'meta_query' => array(
+			array(
+				'key'     => 'ucf_meeting_date',
+				'value'   => $today,
+				'compare' => '>=',
+				'type'    => 'DATE'
+			),
+			array(
+				'key'     => 'ucf_meeting_committee',
+				'value'   => $committee['term_id'],
+				'compare' => '='
+			),
+			array(
+				'key'     => 'ucf_meeting_other_meeting',
+				'value'   => '1',
+				'compare' => '='
+			)
+		)
+	);
+	$meetings = UCF_Meeting::all( $args );
+	$meeting = ( count( $meetings ) ) ? $meetings[0] : null;
+	return $meeting;
+}
+
 ?>
