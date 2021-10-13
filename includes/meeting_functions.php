@@ -330,11 +330,9 @@ function ucf_bot_get_special_meetings_by_year_committee( $committee, $args=array
 			'compare'  => 'LIKE'
 		),
 		array(
-			array(
-				'key'      => 'ucf_meeting_special_meeting',
-				'value'    => 1,
-				'compare'  => '='
-			)
+			'key'      => 'ucf_meeting_special_meeting',
+			'value'    => 1,
+			'compare'  => '='
 		)
 	);
 	return UCF_Meeting::group_by_year( $args );
@@ -351,11 +349,9 @@ function ucf_bot_get_other_meetings_by_year_committee( $committee, $args=array()
 			'compare'  => 'LIKE'
 		),
 		array(
-			array(
-				'key'      => 'ucf_meeting_other_meeting',
-				'value'    => 1,
-				'compare'  => '='
-			)
+			'key'      => 'ucf_meeting_other_meeting',
+			'value'    => 1,
+			'compare'  => '='
 		)
 	);
 	return UCF_Meeting::group_by_year( $args );
