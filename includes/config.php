@@ -111,8 +111,8 @@ function ucf_bot_define_customizer_fields( $wp_customize ) {
 		'show_special_meeting_videos',
 		array(
 			'type'        => 'checkbox',
-			'label'       => 'Show Special Meeting Videos',
-			'description' => 'Show videos column in the list of special meetings.',
+			'label'       => 'Show Board Retreat or Workshop Videos',
+			'description' => 'Show videos column in the list of Board Retreats or Workshops.',
 			'section'     => THEME_CUSTOMIZER_PREFIX . 'meeting_videos'
 		)
 	);
