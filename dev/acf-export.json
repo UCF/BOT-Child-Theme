@@ -301,10 +301,10 @@
             },
             {
                 "key": "field_58d2deb261415",
-                "label": "Special Meeting",
+                "label": "Board Retreat or Workshop",
                 "name": "ucf_meeting_special_meeting",
                 "type": "true_false",
-                "instructions": "(Optional) Label this meeting as a special meeting.",
+                "instructions": "(Optional) Label this meeting as a Board Retreat or Workshop.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
