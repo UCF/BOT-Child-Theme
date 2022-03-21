@@ -17,8 +17,10 @@
 
 .document {
   &::before {
+    display: inline-block;
     font-family: 'FontAwesome';
     position: relative;
+    text-decoration: none;
   }
 
   &[href*='.pdf'] {
@@ -71,9 +73,11 @@
 }
 
 .list-gold-arrow {
-  padding-left: 22px;
+  padding-left: 0;
 
   li {
+    align-items: flex-start;
+    display: flex;
     font-size: 16px;
     list-style: none;
     margin-bottom: 8px;
@@ -82,7 +86,15 @@
       color: $ucf-gold;
       content: '\f138';
       font-family: 'FontAwesome';
-      margin: 9px 8px 0 -20px;
+      margin-right: .5rem;
+    }
+  }
+
+  a {
+    text-decoration: none;
+
+    @include hover-focus-active {
+      text-decoration: underline;
     }
   }
 }
