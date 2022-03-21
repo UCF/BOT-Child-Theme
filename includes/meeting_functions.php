@@ -163,7 +163,7 @@ function ucf_bot_display_meetings( $meetings, $show_videos = true ) {
 	ob_start();
 ?>
 	<div class="table-responsive">
-		<table class="table table-collapse table-striped font-80-percent w-100">
+		<table class="table table-collapse table-striped font-80-percent w-100 table-meetings">
 			<thead>
 				<tr>
 					<th>Date</th>
