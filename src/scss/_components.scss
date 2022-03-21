@@ -16,6 +16,10 @@
 }
 
 .document {
+  .table-meetings & {
+    white-space: nowrap;
+  }
+
   &::before {
     display: inline-block;
     font-family: 'FontAwesome';
