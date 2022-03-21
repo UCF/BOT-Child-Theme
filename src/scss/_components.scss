@@ -17,8 +17,10 @@
 
 .document {
   &::before {
+    display: inline-block;
     font-family: 'FontAwesome';
     position: relative;
+    text-decoration: none;
   }
 
   &[href*='.pdf'] {
