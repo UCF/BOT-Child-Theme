@@ -18,6 +18,10 @@ Head over to the [BOT Child Theme wiki](https://github.com/UCF/BOT-Child-Theme/w
 
 ## Changelog ##
 
+### 1.3.0 ###
+Enhancements:
+* Added fields and updated templates to support Board "Retreat/Workshop" meetings as separate from "Other" meetings.
+
 ### 1.2.2 ###
 Bug Fixes:
 * Modified the arguments used to get the latest meeting minutes to ensure meetings where the minutes have been removed at some point are excluded.
@@ -39,7 +43,7 @@ Note that compiled, minified css and js files are included within the repo.  Cha
 [Enabling debug mode](https://codex.wordpress.org/Debugging_in_WordPress) in your `wp-config.php` file is recommended during development to help catch warnings and bugs.
 
 ### Requirements
-* node
+* node v16+
 * gulp-cli
 
 ### Instructions
