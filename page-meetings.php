@@ -18,7 +18,7 @@ get_header(); the_post();
 				}
 			?>
 			<?php if ( $secondary_content ) : ?>
-			<div class="font-size-sm mt-3 mt-md-1 mb-4">
+			<div class="mt-3 mt-md-1 mb-4">
 				<?php echo $secondary_content; ?>
 			</div>
 			<?php endif; ?>
