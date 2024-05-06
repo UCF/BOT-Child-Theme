@@ -302,7 +302,7 @@
                 "name": "ucf_meetings_minutes",
                 "aria-label": "",
                 "type": "file",
-                "instructions": "Upload an minutes file for this meeting. This file will only be used if the Minutes URL field is blank.",
+                "instructions": "Upload a minutes file for this meeting. This file will only be used if the Minutes URL field is blank.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
