@@ -268,7 +268,7 @@
                 "name": "ucf_meeting_video",
                 "aria-label": "",
                 "type": "url",
-                "instructions": "Enter the URL of the YouTube live stream or video.",
+                "instructions": "Enter the URL of the YouTube live stream or video, e.g. https:\/\/www.youtube.com\/watch?v=popkIIRZpFY or https:\/\/youtu.be\/popkIIRZpFY.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -277,7 +277,7 @@
                     "id": ""
                 },
                 "default_value": "",
-                "placeholder": "https:\/\/www.youtube.com\/watch?v=popkIIRZpFY or https:\/\/youtu.be\/popkIIRZpFY"
+                "placeholder": "https:\/\/www.youtube.com\/watch?v=popkIIRZpFY"
             },
             {
                 "key": "field_6638de327cae2",
