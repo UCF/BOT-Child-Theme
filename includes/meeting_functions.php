@@ -22,14 +22,14 @@ function ucf_bot_format_meeting_metadata( $metadata ) {
 	if ( isset( $metadata['ucf_meeting_agenda_url'] ) && ! empty( $metadata['ucf_meeting_agenda_url'] ) ) {
 		$metadata['ucf_meeting_agenda'] = $metadata['ucf_meeting_agenda_url'];
 	} else {
-		$metadata['ucf_meeting_agenda'] = wp_get_attachment_url( $next_meeting->metadata['ucf_meeting_agenda'] );
+		$metadata['ucf_meeting_agenda'] = wp_get_attachment_url( $metadata['ucf_meeting_agenda'] );
 	}
 
 	// Add logic to get the correct link for the minutes document
 	if ( isset( $metadata['ucf_meeting_minutes_url'] ) && ! empty( $metadata['ucf_meeting_minutes_url'] ) ) {
 		$metadata['ucf_meeting_minutes'] = $metadata['ucf_meeting_minutes_url'];
 	} else {
-		$metadata['ucf_meeting_minutes'] = wp_get_attachment_url( $next_meeting->metadata['ucf_meeting_minutes'] );
+		$metadata['ucf_meeting_minutes'] = wp_get_attachment_url( $metadata['ucf_meeting_minutes'] );
 	}
 
 	return $metadata;
