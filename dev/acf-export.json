@@ -226,59 +226,41 @@
                 "bidirectional_target": []
             },
             {
-                "key": "field_6638dcfb02d5d",
-                "label": "Agenda",
-                "name": "agenda",
+                "key": "field_6638dd0902d5e",
+                "label": "Agenda URL",
+                "name": "ucf_meeting_agenda_url",
                 "aria-label": "",
-                "type": "group",
-                "instructions": "",
+                "type": "url",
+                "instructions": "The URL to an externally hosted agenda file or page. This field will take precedence over the Agenda File Upload field.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
-                    "width": "",
+                    "width": "50",
                     "class": "",
                     "id": ""
                 },
-                "layout": "row",
-                "sub_fields": [
-                    {
-                        "key": "field_6638dd0902d5e",
-                        "label": "Agenda URL",
-                        "name": "ucf_meeting_agenda_url",
-                        "aria-label": "",
-                        "type": "url",
-                        "instructions": "The URL to an externally hosted agenda file or page. This field will take precedence over the Agenda File Upload field.",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "placeholder": ""
-                    },
-                    {
-                        "key": "field_58d2de2c61412",
-                        "label": "Agenda File Upload",
-                        "name": "ucf_meeting_agenda",
-                        "aria-label": "",
-                        "type": "file",
-                        "instructions": "Upload an agenda file for this meeting. This file will only be used if the Agenda URL field is blank.",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "return_format": "url",
-                        "library": "uploadedTo",
-                        "min_size": "",
-                        "max_size": "",
-                        "mime_types": ""
-                    }
-                ]
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_58d2de2c61412",
+                "label": "Agenda File Upload",
+                "name": "ucf_meeting_agenda",
+                "aria-label": "",
+                "type": "file",
+                "instructions": "Upload an agenda file for this meeting. This file will only be used if the Agenda URL field is blank.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "uploadedTo",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": ""
             },
             {
                 "key": "field_5cfe5b805d1cf",
@@ -298,59 +280,41 @@
                 "placeholder": "https:\/\/www.youtube.com\/watch?v=popkIIRZpFY or https:\/\/youtu.be\/popkIIRZpFY"
             },
             {
-                "key": "field_6638de267cae1",
-                "label": "Minutes",
-                "name": "minutes",
+                "key": "field_6638de327cae2",
+                "label": "Minutes URL",
+                "name": "ucf_meeting_minutes_url",
                 "aria-label": "",
-                "type": "group",
-                "instructions": "",
+                "type": "url",
+                "instructions": "The URL to an externally hosted minutes file or page. This field will take precedence over the Minutes File Upload field.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
-                    "width": "",
+                    "width": "50",
                     "class": "",
                     "id": ""
                 },
-                "layout": "row",
-                "sub_fields": [
-                    {
-                        "key": "field_6638de327cae2",
-                        "label": "Minutes URL",
-                        "name": "ucf_meeting_minutes_url",
-                        "aria-label": "",
-                        "type": "url",
-                        "instructions": "The URL to an externally hosted minutes file or page. This field will take precedence over the Minutes File Upload field.",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "",
-                        "placeholder": ""
-                    },
-                    {
-                        "key": "field_58d2de4361413",
-                        "label": "Minutes File Upload",
-                        "name": "ucf_meeting_minutes",
-                        "aria-label": "",
-                        "type": "file",
-                        "instructions": "Upload an minutes file for this meeting. This file will only be used if the Minutes URL field is blank.",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "return_format": "url",
-                        "library": "uploadedTo",
-                        "min_size": "",
-                        "max_size": "",
-                        "mime_types": ""
-                    }
-                ]
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_58d2de4361413",
+                "label": "Minutes File Upload",
+                "name": "ucf_meetings_minutes",
+                "aria-label": "",
+                "type": "file",
+                "instructions": "Upload an minutes file for this meeting. This file will only be used if the Minutes URL field is blank.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "uploadedTo",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": ""
             },
             {
                 "key": "field_58d2de5a61414",
