@@ -299,7 +299,7 @@
             {
                 "key": "field_58d2de4361413",
                 "label": "Minutes File Upload",
-                "name": "ucf_meetings_minutes",
+                "name": "ucf_meeting_minutes",
                 "aria-label": "",
                 "type": "file",
                 "instructions": "Upload a minutes file for this meeting. This file will only be used if the Minutes URL field is blank.",
