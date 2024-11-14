@@ -17,6 +17,21 @@ function ucf_bot_format_meeting_metadata( $metadata ) {
 	} else {
 		$metadata['ucf_meeting_end_time'] = 'TBD';
 	}
+
+	// Add logic to get the correct link for the Agenda document
+	if ( isset( $metadata['ucf_meeting_agenda_url'] ) && ! empty( $metadata['ucf_meeting_agenda_url'] ) ) {
+		$metadata['ucf_meeting_agenda'] = $metadata['ucf_meeting_agenda_url'];
+	} else {
+		$metadata['ucf_meeting_agenda'] = wp_get_attachment_url( $metadata['ucf_meeting_agenda'] );
+	}
+
+	// Add logic to get the correct link for the minutes document
+	if ( isset( $metadata['ucf_meeting_minutes_url'] ) && ! empty( $metadata['ucf_meeting_minutes_url'] ) ) {
+		$metadata['ucf_meeting_minutes'] = $metadata['ucf_meeting_minutes_url'];
+	} else {
+		$metadata['ucf_meeting_minutes'] = wp_get_attachment_url( $metadata['ucf_meeting_minutes'] );
+	}
+
 	return $metadata;
 }
 add_filter( 'ucf_meeting_format_metadata', 'ucf_bot_format_meeting_metadata', 10, 1 );
@@ -60,8 +75,8 @@ function ucf_bot_get_next_meeting_markup() {
 				<?php if ( $next_meeting->metadata['ucf_meeting_video'] ) : ?>
 				<p class="my-1 font-80-percent"><a class="document" href="<?php echo $next_meeting->metadata['ucf_meeting_video']; ?>" target="_blank">View Livestream</a></p>
 				<?php endif; ?>
-				<?php if ( $next_meeting->metadata['ucf_meeting_agenda'] ) : $file_url = wp_get_attachment_url( $next_meeting->metadata['ucf_meeting_agenda'] ); ?>
-				<p class="mb-0 font-80-percent"><a class="document" href="<?php echo $file_url; ?>" target="_blank">View Agenda</a></p>
+				<?php if ( $next_meeting->metadata['ucf_meeting_agenda'] ) : ?>
+				<p class="mb-0 font-80-percent"><a class="document" href="<?php echo $next_meeting->metadata['ucf_meeting_agenda']; ?>" target="_blank">View Agenda</a></p>
 				<?php endif ; ?>
 				<?php if ( $next_meeting->metadata['ucf_meeting_additional_document'] && $next_meeting->metadata['ucf_meeting_additional_document_text'] ) :
 					$file_url = wp_get_attachment_url( $next_meeting->metadata['ucf_meeting_additional_document'] );
@@ -111,8 +126,8 @@ function ucf_bot_get_latest_meeting_markup() {
 function ucf_bot_get_special_meeting_markup() {
 	ob_start();
 ?>
-	<div class="bg-faded p-3">
-	<h3 class="text-uppercase h6 underline-gold mb-3">Next Retreat/Workshop</h3>
+	<div class="bg-faded p-3 mb-4">
+	<h3 class="text-uppercase h6 underline-gold mb-3">Additional Notice</h3>
 	<?php $special_meeting = ucf_bot_get_next_special_meeting(); if ( $special_meeting ) : ?>
 	<div class="row">
 		<div class="col-md-1">
@@ -126,7 +141,7 @@ function ucf_bot_get_special_meeting_markup() {
 				<p class="my-1 font-80-percent"><em><?php echo $special_meeting->metadata['ucf_meeting_special_name']; ?></em></p>
 			<?php endif; ?>
 			<?php if ( isset( $special_meeting->metadata['ucf_meeting_agenda'] ) && ! empty( $special_meeting->metadata['ucf_meeting_agenda'] ) ) :
-				$special_meeting_agenda = wp_get_attachment_url( $special_meeting->metadata['ucf_meeting_agenda'] );
+				$special_meeting_agenda = $special_meeting->metadata['ucf_meeting_agenda'];
 			?>
 				<p class="mb-0 font-80-percent"><a class="document" href="<?php echo $special_meeting_agenda; ?>" target="_blank">View Agenda</a></p>
 			<?php endif; ?>
@@ -199,14 +214,14 @@ function ucf_bot_display_meetings( $meetings, $show_videos = true ) {
 					</td>
 					<td data-title="Agenda">
 						<?php if ( isset( $post->metadata['ucf_meeting_agenda'] ) && ! empty( $post->metadata['ucf_meeting_agenda'] ) ) : ?>
-						<a class="document" href="<?php echo wp_get_attachment_url( $post->metadata['ucf_meeting_agenda'] ); ?>" target="_blank">Download</a>
+						<a class="document" href="<?php echo $post->metadata['ucf_meeting_agenda']; ?>" target="_blank">Download</a>
 						<?php else: ?>
 						-
 						<?php endif; ?>
 					</td>
 					<td data-title="Minutes">
 						<?php if ( isset( $post->metadata['ucf_meeting_minutes'] ) && ! empty( $post->metadata['ucf_meeting_minutes'] ) ) : ?>
-						<a class="document" href="<?php echo wp_get_attachment_url( $post->metadata['ucf_meeting_minutes'] ); ?>" target="_blank">Download</a>
+						<a class="document" href="<?php echo $post->metadata['ucf_meeting_minutes']; ?>" target="_blank">Download</a>
 						<?php else: ?>
 						-
 						<?php endif; ?>
@@ -398,7 +413,7 @@ function ucf_bot_get_latest_meeting_minutes( $committee='None', $args=array() ) 
 	if ( $meeting ) {
 		$retval = array(
 			'name'  => $meeting->metadata['ucf_meeting_date']->format( 'F j, Y' ),
-			'file'  => wp_get_attachment_url( $meeting->metadata['ucf_meeting_minutes'] ),
+			'file'  => $meeting->metadata['ucf_meeting_minutes'],
 			'video' => isset( $meeting->metadata['ucf_meeting_video'] ) ? $meeting->metadata['ucf_meeting_video'] : null
 		);
 	}

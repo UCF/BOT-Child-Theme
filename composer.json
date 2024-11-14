@@ -1,0 +1,8 @@
+{
+    "name": "ucf/bot-child-theme",
+    "description": "Built as a child theme of the UCF WordPress Theme for the Board of Trustees website, using the Athena Framework.",
+    "type": "wordpress-theme",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}

@@ -8,10 +8,10 @@
 					<?php echo ucf_bot_get_next_meeting_markup(); ?>
 				</div>
 				<div class="col-md-4">
-					<?php echo ucf_bot_get_latest_meeting_markup(); ?>
+					<?php echo ucf_bot_get_special_meeting_markup(); ?>
 				</div>
 				<div class="col-md-4">
-					<?php echo ucf_bot_get_special_meeting_markup(); ?>
+					<?php echo ucf_bot_get_latest_meeting_markup(); ?>
 				</div>
 			</div>
 		</div>

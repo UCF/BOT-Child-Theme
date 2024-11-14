@@ -21,8 +21,11 @@
   }
 
   &::before {
+    color: #d90200;
+    content: '\f0f6';
     display: inline-block;
     font-family: 'FontAwesome';
+    margin-right: 10px;
     position: relative;
     text-decoration: none;
   }
