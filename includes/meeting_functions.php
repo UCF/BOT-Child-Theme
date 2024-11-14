@@ -126,7 +126,7 @@ function ucf_bot_get_latest_meeting_markup() {
 function ucf_bot_get_special_meeting_markup() {
 	ob_start();
 ?>
-	<div class="bg-faded p-3">
+	<div class="bg-faded p-3 mb-4">
 	<h3 class="text-uppercase h6 underline-gold mb-3">Additional Notice</h3>
 	<?php $special_meeting = ucf_bot_get_next_special_meeting(); if ( $special_meeting ) : ?>
 	<div class="row">
