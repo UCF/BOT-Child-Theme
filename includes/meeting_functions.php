@@ -127,7 +127,7 @@ function ucf_bot_get_special_meeting_markup() {
 	ob_start();
 ?>
 	<div class="bg-faded p-3">
-	<h3 class="text-uppercase h6 underline-gold mb-3">Next Retreat/Workshop</h3>
+	<h3 class="text-uppercase h6 underline-gold mb-3">Additional Notice</h3>
 	<?php $special_meeting = ucf_bot_get_next_special_meeting(); if ( $special_meeting ) : ?>
 	<div class="row">
 		<div class="col-md-1">
